@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  port: 5432
+  encoding: utf8
+  max_connections: 5
+
+development:
+  <<: *default
+  database: cometogether_development
+  user: rails
+  password: rails
+
+test:
+  <<: *default
+  database: cometogether_test
+  user: rails
+  password: rails
