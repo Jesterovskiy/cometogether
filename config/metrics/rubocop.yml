@@ -1,0 +1,59 @@
+AllCops:
+  RunRailsCops: true
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  Exclude:
+    - 'vendor/**/*'
+    - 'bin/*'
+    - 'db/**/*'
+
+AccessModifierIndentation:
+  EnforcedStyle: outdent
+
+AndOr:
+  Enabled: false
+
+EmptyLinesAroundClassBody:
+  Enabled: false
+
+EmptyLinesAroundModuleBody:
+  Enabled: false
+
+EmptyLinesAroundMethodBody:
+  Enabled: false
+
+EmptyLinesAroundBlockBody:
+  Enabled: false
+
+EndAlignment:
+  AlignWith: variable
+
+LineLength:
+  Max: 99
+  Exclude:
+    - 'config/**/*'
+    - 'spec/database/**/*'
+
+SpaceAroundEqualsInParameterDefault:
+  Enabled: false
+
+TrivialAccessors:
+  ExactNameMatch: true
+  AllowPredicates: true
+
+SingleSpaceBeforeFirstArg:
+  Enabled: false
+
+Style/CaseIndentation:
+  Enabled: false # Add our behaviour
+
+Metrics/ClassLength:
+  Max: 120
+
+# Changes from template
+
+Lint/AssignmentInCondition:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
