@@ -21,10 +21,15 @@ gem 'uglifier', '>= 1.3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Documentation presetner
+gem 'apitome'
+
 group :development, :test do
   gem 'pry'
   gem 'pry-rails'
   gem 'pry-byebug'
+
+  gem 'rspec_api_documentation'
 end
 
 group :development do

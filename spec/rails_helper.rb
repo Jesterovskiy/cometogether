@@ -2,12 +2,14 @@
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
 
+require 'rspec_api_documentation/dsl'
 require 'ffaker'
 require 'webmock/rspec'
+require 'pry-byebug'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -65,4 +67,14 @@ RSpec.configure do |config|
       example.run
     end
   end
+end
+
+RspecApiDocumentation.configure do |config|
+  config.format = :json
+  config.api_name = 'Cometogether API'
+  config.app = Rails.application
+  config.curl_host = 'https://cometogether.com'
+  config.curl_headers_to_filter = %w(Host Cookie Content-Type)
+  config.io_docs_protocol = 'https'
+  config.keep_source_order = false
 end
