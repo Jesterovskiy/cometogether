@@ -1,5 +1,5 @@
 ##
-# Class: Users List presenter
+# Class: User presenter
 #
 class UserPresenter
   def as_json(options={})

@@ -41,12 +41,14 @@ RSpec.resource 'Users' do
     parameter :last_name, 'Last name', type: 'String', scope: :user
     parameter :email, 'Email', type: 'String', scope: :user, required: true
     parameter :password, 'Password', type: 'String', scope: :user, required: true
+    parameter :role, 'Role', type: 'String', scope: :user
 
     context 'with valid params' do
       let(:first_name) { FFaker::Name.first_name }
       let(:last_name)  { FFaker::Name.last_name }
       let(:email)      { FFaker::Internet.email }
       let(:password)   { FFaker::Internet.password }
+      let(:role)       { FFaker::Lorem.word }
 
       example_request 'Get user attributes' do
         expect(status).to be(200)
@@ -71,6 +73,7 @@ RSpec.resource 'Users' do
     parameter :last_name, 'Last name', type: 'String', scope: :user
     parameter :email, 'Email', type: 'String', scope: :user, required: true
     parameter :password, 'Password', type: 'String', scope: :user, required: true
+    parameter :role, 'Role', type: 'String', scope: :user
 
     context 'with valid params' do
       let(:user)       { Fabricate(:user) }
@@ -79,6 +82,7 @@ RSpec.resource 'Users' do
       let(:last_name)  { FFaker::Name.last_name }
       let(:email)      { FFaker::Internet.email }
       let(:password)   { FFaker::Internet.password }
+      let(:role)       { FFaker::Lorem.word }
 
       example_request 'Update user attributes' do
         expect(status).to be(200)
