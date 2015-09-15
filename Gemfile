@@ -24,6 +24,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Documentation presetner
 gem 'apitome'
 
+# Authentication
+gem 'pundit'
+
 group :development, :test do
   gem 'pry'
   gem 'pry-rails'

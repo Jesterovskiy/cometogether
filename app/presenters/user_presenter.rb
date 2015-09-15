@@ -2,7 +2,7 @@
 # Class: User presenter
 #
 class UserPresenter
-  def as_json(options={})
+  def as_json(_options={})
     @item
   end
 

@@ -37,7 +37,7 @@ class API::V1::UsersController < ApplicationController
   end
 
   def destroy
-    unless User.delete(params['id']) == 0
+    if User.delete(params['id']) != 0
       render json: { message: 'Resource deleted' }, status: 200
     else
       render json: { message: 'Resource not found' }, status: 404

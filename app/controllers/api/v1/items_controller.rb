@@ -37,7 +37,7 @@ class API::V1::ItemsController < ApplicationController
   end
 
   def destroy
-    unless Item.delete(params['id']) == 0
+    if Item.delete(params['id']) != 0
       render json: { message: 'Resource deleted' }, status: 200
     else
       render json: { message: 'Resource not found' }, status: 404

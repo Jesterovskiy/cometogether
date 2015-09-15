@@ -31,7 +31,7 @@ RSpec.resource 'Events' do
 
       example_request 'Get error message' do
         expect(status).to be(404)
-        expect(response_body).to eq({message:'Resource not found'}.to_json)
+        expect(response_body).to eq({ message: 'Resource not found' }.to_json)
       end
     end
   end
@@ -61,7 +61,7 @@ RSpec.resource 'Events' do
 
       example_request 'Get error message' do
         expect(status).to be(400)
-        expect(response_body).to eq({ message: { name:["can't be blank"] }}.to_json)
+        expect(response_body).to eq({ message: { name: ["can't be blank"] } }.to_json)
       end
     end
   end
@@ -90,11 +90,11 @@ RSpec.resource 'Events' do
     end
 
     context 'with invalid params' do
-      let(:id) { 100500 }
+      let(:id) { 100_500 }
 
       example_request 'Get error message' do
         expect(status).to be(404)
-        expect(response_body).to eq({message:'Resource not found'}.to_json)
+        expect(response_body).to eq({ message: 'Resource not found' }.to_json)
       end
     end
   end
@@ -109,16 +109,16 @@ RSpec.resource 'Events' do
       example_request 'Get message' do
         expect(status).to be(200)
         expect(Event.count).to be(0)
-        expect(response_body).to eq({message:'Resource deleted'}.to_json)
+        expect(response_body).to eq({ message: 'Resource deleted' }.to_json)
       end
     end
 
     context 'with invalid params' do
-      let(:id) { 100500 }
+      let(:id) { 100_500 }
 
       example_request 'Get error message' do
         expect(status).to be(404)
-        expect(response_body).to eq({message:'Resource not found'}.to_json)
+        expect(response_body).to eq({ message: 'Resource not found' }.to_json)
       end
     end
   end

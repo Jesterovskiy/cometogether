@@ -37,7 +37,7 @@ class API::V1::EventsController < ApplicationController
   end
 
   def destroy
-    unless Event.delete(params['id']) == 0
+    if Event.delete(params['id']) != 0
       render json: { message: 'Resource deleted' }, status: 200
     else
       render json: { message: 'Resource not found' }, status: 404

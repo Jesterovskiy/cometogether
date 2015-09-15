@@ -2,7 +2,7 @@
 # Class: Event presenter
 #
 class EventPresenter
-  def as_json(options={})
+  def as_json(_options={})
     @item
   end
 
