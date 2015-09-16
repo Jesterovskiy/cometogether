@@ -24,7 +24,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Documentation presetner
 gem 'apitome'
 
-# Authentication
+# Authorization
 gem 'pundit'
 
 group :development, :test do

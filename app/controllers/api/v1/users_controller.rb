@@ -2,12 +2,27 @@
 # Class: Users controller
 #
 class API::V1::UsersController < ApplicationController
+  before_action :authenticate, except: [:sign_in, :create]
+
+  def sign_in
+    user = User.find_by_email(user_params['email'])
+    if user && user.authenticate(user_params['password'])
+      render json: { message: 'Your auth token is ' + user.auth_token }, status: 200
+    else
+      render json: { message: 'Email or password is wrong. Try again.' }, status: 401
+    end
+  end
+
   def index
-    render json: UsersListPresenter.new, status: 200
+    users = User.all
+    authorize users
+    render json: UsersListPresenter.new(users), status: 200
   end
 
   def show
-    if user = User.find_by(id: params['id'])
+    user = User.find_by(id: params['id'])
+    if user
+      authorize user
       render json: UserPresenter.new(user), status: 200
     else
       render json: { message: 'Resource not found' }, status: 404
@@ -25,7 +40,10 @@ class API::V1::UsersController < ApplicationController
   end
 
   def update
-    if user = User.find_by(id: params['id'])
+    user = User.find_by(id: params['id'])
+
+    if user
+      authorize user
       if user.update(user_params)
         render json: UserPresenter.new(user), status: 200
       else
@@ -37,7 +55,11 @@ class API::V1::UsersController < ApplicationController
   end
 
   def destroy
-    if User.delete(params['id']) != 0
+    user = User.find_by(id: params['id'])
+
+    if user
+      authorize user
+      user.delete
       render json: { message: 'Resource deleted' }, status: 200
     else
       render json: { message: 'Resource not found' }, status: 404

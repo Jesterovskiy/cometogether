@@ -3,6 +3,8 @@ Fabricator(:user) do
   last_name  { FFaker::Name.last_name }
   email      { FFaker::Internet.email }
   password   { FFaker::Internet.password }
+  role       { User::ROLES.sample }
+  auth_token { SecureRandom.uuid.gsub(/\-/,'') }
 end
 
 Fabricator(:event) do
