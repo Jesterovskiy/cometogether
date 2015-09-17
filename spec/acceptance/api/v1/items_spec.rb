@@ -1,8 +1,11 @@
 require 'rails_helper'
 
 RSpec.resource 'Items' do
+  header 'Authorization', 'Token token=test123123'
+
   get '/api/v1/items' do
     context 'with valid params' do
+      let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
       let!(:items) { Fabricate.times(3, :item) }
 
       example_request 'Get items list' do
@@ -16,6 +19,7 @@ RSpec.resource 'Items' do
     parameter :id, 'Item ID', type: 'Integer', required: true
 
     context 'with valid params' do
+      let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
       let(:item) { Fabricate(:item) }
       let(:id)   { item.id }
 
@@ -26,6 +30,7 @@ RSpec.resource 'Items' do
     end
 
     context 'with invalid params' do
+      let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
       let(:item) { Fabricate(:item) }
       let(:id)   { 100_500 }
 
@@ -46,13 +51,38 @@ RSpec.resource 'Items' do
       let(:comment)     { FFaker::Name.last_name }
       let(:event_id)    { Fabricate(:event).id }
 
-      example_request 'Get item attributes' do
-        expect(status).to be(200)
-        expect(response_body).to eq(Item.last.to_json)
+      context 'when user is admin' do
+        let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
+
+        example_request 'Get item attributes' do
+          expect(status).to be(200)
+          expect(response_body).to eq(Item.last.to_json)
+        end
+      end
+
+      context 'when user is user' do
+        let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'user') }
+
+        example_request 'Get item attributes' do
+          expect(status).to be(200)
+          expect(response_body).to eq(Item.last.to_json)
+        end
+      end
+
+      context 'when user is guest' do
+        let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'guest') }
+
+        example_request 'Get item attributes' do
+          expect(status).to be(401)
+          expect(response_body).to eq({
+            message: 'You are not authorized to perform this action.'
+          }.to_json)
+        end
       end
     end
 
     context 'with invalid params' do
+      let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
       let(:comment) { FFaker::Name.last_name }
 
       example_request 'Get error message' do
@@ -75,13 +105,40 @@ RSpec.resource 'Items' do
       let(:comment)     { FFaker::Name.last_name }
       let(:event_id)    { Fabricate(:event).id }
 
-      example_request 'Update item attributes' do
-        expect(status).to be(200)
-        expect(response_body).to eq(Item.last.to_json)
+      context 'when user is admin' do
+        let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
+
+        example_request 'Update item attributes' do
+          expect(status).to be(200)
+          expect(response_body).to eq(Item.last.to_json)
+        end
+      end
+
+      context 'when user is user' do
+        let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'user') }
+        let(:event)         { Fabricate(:event, user: current_user) }
+        let(:item)          { Fabricate(:item, event: event) }
+
+        example_request 'Update item attributes' do
+          expect(status).to be(200)
+          expect(response_body).to eq(Item.last.to_json)
+        end
+      end
+
+      context 'when user is guest' do
+        let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'guest') }
+
+        example_request 'Update item attributes' do
+          expect(status).to be(401)
+          expect(response_body).to eq({
+            message: 'You are not authorized to perform this action.'
+          }.to_json)
+        end
       end
     end
 
     context 'with invalid params' do
+      let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
       let(:id) { 100_500 }
 
       example_request 'Get error message' do
@@ -98,14 +155,42 @@ RSpec.resource 'Items' do
       let(:item) { Fabricate(:item) }
       let(:id)   { item.id }
 
-      example_request 'Get message' do
-        expect(status).to be(200)
-        expect(Item.count).to be(0)
-        expect(response_body).to eq({ message: 'Resource deleted' }.to_json)
+      context 'when user is admin' do
+        let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
+
+        example_request 'Get message' do
+          expect(status).to be(200)
+          expect(Item.count).to be(0)
+          expect(response_body).to eq({ message: 'Resource deleted' }.to_json)
+        end
+      end
+
+      context 'when user is user' do
+        let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'user') }
+        let(:event)         { Fabricate(:event, user: current_user) }
+        let(:item)          { Fabricate(:item, event: event) }
+
+        example_request 'Get message' do
+          expect(status).to be(200)
+          expect(Item.count).to be(0)
+          expect(response_body).to eq({ message: 'Resource deleted' }.to_json)
+        end
+      end
+
+      context 'when user is guest' do
+        let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'guest') }
+
+        example_request 'Get message' do
+          expect(status).to be(401)
+          expect(response_body).to eq({
+            message: 'You are not authorized to perform this action.'
+          }.to_json)
+        end
       end
     end
 
     context 'with invalid params' do
+      let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
       let(:id) { 100_500 }
 
       example_request 'Get error message' do

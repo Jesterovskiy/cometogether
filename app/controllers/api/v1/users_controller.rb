@@ -6,6 +6,7 @@ class API::V1::UsersController < ApplicationController
 
   def sign_in
     user = User.find_by_email(user_params['email'])
+
     if user && user.authenticate(user_params['password'])
       render json: { message: 'Your auth token is ' + user.auth_token }, status: 200
     else
@@ -16,11 +17,13 @@ class API::V1::UsersController < ApplicationController
   def index
     users = User.all
     authorize users
+
     render json: UsersListPresenter.new(users), status: 200
   end
 
   def show
     user = User.find_by(id: params['id'])
+
     if user
       authorize user
       render json: UserPresenter.new(user), status: 200

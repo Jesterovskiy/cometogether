@@ -2,12 +2,20 @@
 # Class: Items controller
 #
 class API::V1::ItemsController < ApplicationController
+  before_action :authenticate
+
   def index
-    render json: ItemsListPresenter.new, status: 200
+    items = Item.all
+    authorize items
+
+    render json: ItemsListPresenter.new(items), status: 200
   end
 
   def show
-    if item = Item.find_by(id: params['id'])
+    item = Item.find_by(id: params['id'])
+
+    if item
+      authorize item
       render json: ItemPresenter.new(item), status: 200
     else
       render json: { message: 'Resource not found' }, status: 404
@@ -15,9 +23,11 @@ class API::V1::ItemsController < ApplicationController
   end
 
   def create
-    item = Item.create(item_params)
+    item = Item.new(item_params)
+    authorize item
 
     if item.valid?
+      item.save
       render json: ItemPresenter.new(item), status: 200
     else
       render json: { message: item.errors }, status: 400
@@ -26,6 +36,7 @@ class API::V1::ItemsController < ApplicationController
 
   def update
     if item = Item.find_by(id: params['id'])
+      authorize item
       if item.update(item_params)
         render json: ItemPresenter.new(item), status: 200
       else
@@ -37,7 +48,11 @@ class API::V1::ItemsController < ApplicationController
   end
 
   def destroy
-    if Item.delete(params['id']) != 0
+    item = Item.find_by(id: params['id'])
+
+    if item
+      authorize item
+      item.delete
       render json: { message: 'Resource deleted' }, status: 200
     else
       render json: { message: 'Resource not found' }, status: 404

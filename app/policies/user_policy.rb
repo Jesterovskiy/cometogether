@@ -6,19 +6,27 @@ class UserPolicy
     @user = user
   end
 
+  def sign_in?
+    true
+  end
+
   def index?
     current_user.is?(:admin)
   end
 
   def show?
-    current_user.is?(:admin) or current_user == user
+    current_user.is?(:admin) || current_user == user
+  end
+
+  def create?
+    true
   end
 
   def update?
-    current_user.is?(:admin) or current_user == user
+    current_user.is?(:admin) || current_user == user
   end
 
   def destroy?
-    current_user.is?(:admin) or current_user == user
+    current_user.is?(:admin) || current_user == user
   end
 end

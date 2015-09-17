@@ -8,7 +8,7 @@ class ItemsListPresenter
 
 private
 
-  def initialize
-    @items = Item.all
+  def initialize(items)
+    @items = items
   end
 end

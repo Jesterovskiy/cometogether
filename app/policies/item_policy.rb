@@ -6,19 +6,23 @@ class ItemPolicy
     @item = item
   end
 
+  def index?
+    true
+  end
+
   def show?
-    scope.where(:id => record.id).exists?
+    true
   end
 
   def create?
-    false
+    user.is?(:admin) || user.is?(:user)
   end
 
   def update?
-    false
+    user.is?(:admin) || item.event.user == user && !user.is?(:guest)
   end
 
   def destroy?
-    false
+    user.is?(:admin) || item.event.user == user && !user.is?(:guest)
   end
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.resource 'Users', :type => :controller do
+RSpec.resource 'Users' do
   header 'Accept', 'application/json'
 
   post '/api/v1/users/sign_in' do
@@ -128,15 +128,16 @@ RSpec.resource 'Users', :type => :controller do
     parameter :role, 'Role', type: 'String', scope: :user
 
     context 'with valid params' do
+      let(:user)       { Fabricate(:user) }
+      let(:id)         { user.id }
+      let(:first_name) { FFaker::Name.first_name }
+      let(:last_name)  { FFaker::Name.last_name }
+      let(:email)      { FFaker::Internet.email }
+      let(:password)   { FFaker::Internet.password }
+      let(:role)       { User::ROLES.sample }
+
       context 'when user admin' do
         let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
-        let(:user)       { Fabricate(:user) }
-        let(:id)         { user.id }
-        let(:first_name) { FFaker::Name.first_name }
-        let(:last_name)  { FFaker::Name.last_name }
-        let(:email)      { FFaker::Internet.email }
-        let(:password)   { FFaker::Internet.password }
-        let(:role)       { User::ROLES.sample }
 
         example_request 'Update user attributes' do
           expect(status).to be(200)
@@ -145,13 +146,7 @@ RSpec.resource 'Users', :type => :controller do
       end
 
       context 'when user is current_user' do
-        let(:user)       { Fabricate(:user, auth_token: 'test123123', role: 'user') }
-        let(:id)         { user.id }
-        let(:first_name) { FFaker::Name.first_name }
-        let(:last_name)  { FFaker::Name.last_name }
-        let(:email)      { FFaker::Internet.email }
-        let(:password)   { FFaker::Internet.password }
-        let(:role)       { User::ROLES.sample }
+        let(:user) { Fabricate(:user, auth_token: 'test123123', role: 'user') }
 
         example_request 'Update user attributes' do
           expect(status).to be(200)
@@ -176,10 +171,11 @@ RSpec.resource 'Users', :type => :controller do
     parameter :id, 'User ID', type: 'Integer', required: true
 
     context 'with valid params' do
+      let(:user) { Fabricate(:user) }
+      let(:id)   { user.id }
+
       context 'when user admin' do
         let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
-        let(:user) { Fabricate(:user) }
-        let(:id)   { user.id }
 
         example_request 'Get message' do
           expect(status).to be(200)
@@ -190,7 +186,6 @@ RSpec.resource 'Users', :type => :controller do
 
       context 'when user is current_user' do
         let(:user) { Fabricate(:user, auth_token: 'test123123', role: 'user') }
-        let(:id)   { user.id }
 
         example_request 'Get message' do
           expect(status).to be(200)

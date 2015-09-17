@@ -8,7 +8,7 @@ class EventsListPresenter
 
 private
 
-  def initialize
-    @items = Event.all
+  def initialize(events)
+    @items = events
   end
 end

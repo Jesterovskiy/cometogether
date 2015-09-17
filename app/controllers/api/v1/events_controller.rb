@@ -2,12 +2,20 @@
 # Class: Events controller
 #
 class API::V1::EventsController < ApplicationController
+  before_action :authenticate
+
   def index
-    render json: EventsListPresenter.new, status: 200
+    events = Event.all
+    authorize events
+
+    render json: EventsListPresenter.new(events), status: 200
   end
 
   def show
-    if event = Event.find_by(id: params['id'])
+    event = Event.find_by(id: params['id'])
+
+    if event
+      authorize event
       render json: EventPresenter.new(event), status: 200
     else
       render json: { message: 'Resource not found' }, status: 404
@@ -15,9 +23,11 @@ class API::V1::EventsController < ApplicationController
   end
 
   def create
-    event = Event.create(event_params)
+    event = Event.new(event_params)
+    authorize event
 
     if event.valid?
+      event.save
       render json: EventPresenter.new(event), status: 200
     else
       render json: { message: event.errors }, status: 400
@@ -26,6 +36,8 @@ class API::V1::EventsController < ApplicationController
 
   def update
     if event = Event.find_by(id: params['id'])
+      authorize event
+
       if event.update(event_params)
         render json: EventPresenter.new(event), status: 200
       else
@@ -37,7 +49,11 @@ class API::V1::EventsController < ApplicationController
   end
 
   def destroy
-    if Event.delete(params['id']) != 0
+    event = Event.find_by(id: params['id'])
+
+    if event
+      authorize event
+      event.delete
       render json: { message: 'Resource deleted' }, status: 200
     else
       render json: { message: 'Resource not found' }, status: 404
