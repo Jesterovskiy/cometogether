@@ -1,0 +1,99 @@
+{
+  "resources" : [
+    {
+      "name" : "Events",
+      "examples" : [
+        {
+          "description" : "(CREATE) Create event",
+          "link" : "events/(create)_create_event.json",
+          "groups" : "all"
+        },
+        {
+          "description" : "(DELETE) Delete event",
+          "link" : "events/(delete)_delete_event.json",
+          "groups" : "all"
+        },
+        {
+          "description" : "(INDEX) Get all events",
+          "link" : "events/(index)_get_all_events.json",
+          "groups" : "all"
+        },
+        {
+          "description" : "(SHOW) Get event",
+          "link" : "events/(show)_get_event.json",
+          "groups" : "all"
+        },
+        {
+          "description" : "(UPDATE) Update event",
+          "link" : "events/(update)_update_event.json",
+          "groups" : "all"
+        }
+      ]
+    },
+    {
+      "name" : "Items",
+      "examples" : [
+        {
+          "description" : "(CREATE) Create item",
+          "link" : "items/(create)_create_item.json",
+          "groups" : "all"
+        },
+        {
+          "description" : "(DELETE) Delete item",
+          "link" : "items/(delete)_delete_item.json",
+          "groups" : "all"
+        },
+        {
+          "description" : "(INDEX) Get all items",
+          "link" : "items/(index)_get_all_items.json",
+          "groups" : "all"
+        },
+        {
+          "description" : "(SHOW) Get item",
+          "link" : "items/(show)_get_item.json",
+          "groups" : "all"
+        },
+        {
+          "description" : "(UPDATE) Update item",
+          "link" : "items/(update)_update_item.json",
+          "groups" : "all"
+        }
+      ]
+    },
+    {
+      "name" : "Users",
+      "examples" : [
+        {
+          "description" : "(CREATE) Create user",
+          "link" : "users/(create)_create_user.json",
+          "groups" : "all"
+        },
+        {
+          "description" : "(DELETE) Delete user",
+          "link" : "users/(delete)_delete_user.json",
+          "groups" : "all"
+        },
+        {
+          "description" : "(INDEX) Get all users",
+          "link" : "users/(index)_get_all_users.json",
+          "groups" : "all"
+        },
+        {
+          "description" : "(SHOW) Get user",
+          "link" : "users/(show)_get_user.json",
+          "groups" : "all"
+        },
+        {
+          "description" : "(SIGN_IN) Get auth token",
+          "link" : "users/(sign_in)_get_auth_token.json",
+          "groups" : "all"
+        },
+        {
+          "description" : "(UPDATE) Update user",
+          "link" : "users/(update)_update_user.json",
+          "groups" : "all"
+        }
+      ]
+    }
+  ]
+}

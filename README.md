@@ -26,13 +26,17 @@ rake db:migrate RAILS_ENV=test
 bin/rails s
 ```
 
-## Development
+### Development
 
 ### Testing
 
 ```
 bundle exec rspec
 ```
+
+### Documentation
+
+`http://localhost:3000/api/docs`
 
 ### Metrics
 

@@ -1,0 +1,44 @@
+{
+  "resource" : "Items",
+  "http_method" : "GET",
+  "route" : "/api/v1/items/:id",
+  "description" : "(SHOW) Get item",
+  "explanation" : null,
+  "parameters" : [
+    {
+      "type" : "Integer",
+      "required" : true,
+      "name" : "id",
+      "description" : "Item ID"
+    }
+  ],
+  "response_fields" : [],
+  "requests" : [
+    {
+      "request_method" : "GET",
+      "request_path" : "/api/v1/items/4",
+      "request_body" : null,
+      "request_headers" : {
+        "Authorization" : "Token token=test123123"
+      },
+      "request_query_parameters" : {},
+      "request_content_type" : null,
+      "response_status" : 200,
+      "response_status_text" : "OK",
+      "response_body" : "{\"id\":4,\"description\":\"Qui ad non quo numquam mollitia consequatur.\",\"comment\":\"Minus aut quibusdam temporibus dolores nam.\",\"event_id\":16,\"created_at\":\"2015-09-17T22:50:14.478Z\",\"updated_at\":\"2015-09-17T22:50:14.478Z\"}",
+      "response_headers" : {
+        "X-Frame-Options" : "SAMEORIGIN",
+        "X-XSS-Protection" : "1; mode=block",
+        "X-Content-Type-Options" : "nosniff",
+        "Content-Type" : "application/json; charset=utf-8",
+        "ETag" : "W/\"39bd06d0fb510ff5e509a4b44ea554ef\"",
+        "Cache-Control" : "max-age=0, private, must-revalidate",
+        "X-Request-Id" : "1fb9d988-f2ab-4ea6-b0bd-e467a87c4692",
+        "X-Runtime" : "0.005282",
+        "Content-Length" : "219"
+      },
+      "response_content_type" : "application/json; charset=utf-8",
+      "curl" : "curl \"https://cometogether.com/api/v1/items/4\" -X GET \\\n\t-H \"Authorization: Token token=test123123\""
+    }
+  ]
+}

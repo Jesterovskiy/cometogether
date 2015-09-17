@@ -1,0 +1,53 @@
+{
+  "resource" : "Users",
+  "http_method" : "POST",
+  "route" : "/api/v1/users/sign_in",
+  "description" : "(SIGN_IN) Get auth token",
+  "explanation" : null,
+  "parameters" : [
+    {
+      "type" : "String",
+      "scope" : "user",
+      "required" : true,
+      "name" : "email",
+      "description" : "Email"
+    },
+    {
+      "type" : "String",
+      "scope" : "user",
+      "required" : true,
+      "name" : "password",
+      "description" : "Password"
+    }
+  ],
+  "response_fields" : [],
+  "requests" : [
+    {
+      "request_method" : "POST",
+      "request_path" : "/api/v1/users/sign_in",
+      "request_body" : "user[email]=luther.gorczany%40marquardthermann.co.uk&user[password]=delectusautemaut",
+      "request_headers" : {
+        "Accept" : "application/json",
+        "Content-Type" : "application/x-www-form-urlencoded"
+      },
+      "request_query_parameters" : {},
+      "request_content_type" : "application/x-www-form-urlencoded",
+      "response_status" : 200,
+      "response_status_text" : "OK",
+      "response_body" : "{\"message\":\"Your auth token is f6f6ebe8a699495f930a44e259d52ada\"}",
+      "response_headers" : {
+        "X-Frame-Options" : "SAMEORIGIN",
+        "X-XSS-Protection" : "1; mode=block",
+        "X-Content-Type-Options" : "nosniff",
+        "Content-Type" : "application/json; charset=utf-8",
+        "ETag" : "W/\"ed1f1814d55dcb8067fd27384f30adcc\"",
+        "Cache-Control" : "max-age=0, private, must-revalidate",
+        "X-Request-Id" : "03910b87-9040-4ea2-aeb6-695638db1ba4",
+        "X-Runtime" : "0.010479",
+        "Content-Length" : "65"
+      },
+      "response_content_type" : "application/json; charset=utf-8",
+      "curl" : "curl \"https://cometogether.com/api/v1/users/sign_in\" -d 'user[email]=luther.gorczany%40marquardthermann.co.uk&user[password]=delectusautemaut' -X POST \\\n\t-H \"Accept: application/json\""
+    }
+  ]
+}

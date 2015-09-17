@@ -1,0 +1,46 @@
+{
+  "resource" : "Users",
+  "http_method" : "DELETE",
+  "route" : "/api/v1/users/:id",
+  "description" : "(DELETE) Delete user",
+  "explanation" : null,
+  "parameters" : [
+    {
+      "type" : "Integer",
+      "required" : true,
+      "name" : "id",
+      "description" : "User ID"
+    }
+  ],
+  "response_fields" : [],
+  "requests" : [
+    {
+      "request_method" : "DELETE",
+      "request_path" : "/api/v1/users/74",
+      "request_body" : null,
+      "request_headers" : {
+        "Accept" : "application/json",
+        "Authorization" : "Token token=test123123",
+        "Content-Type" : "application/x-www-form-urlencoded"
+      },
+      "request_query_parameters" : {},
+      "request_content_type" : "application/x-www-form-urlencoded",
+      "response_status" : 200,
+      "response_status_text" : "OK",
+      "response_body" : "{\"message\":\"Resource deleted\"}",
+      "response_headers" : {
+        "X-Frame-Options" : "SAMEORIGIN",
+        "X-XSS-Protection" : "1; mode=block",
+        "X-Content-Type-Options" : "nosniff",
+        "Content-Type" : "application/json; charset=utf-8",
+        "ETag" : "W/\"39b5aa85d8bbf9692f92b06d32a694e9\"",
+        "Cache-Control" : "max-age=0, private, must-revalidate",
+        "X-Request-Id" : "4cd202cc-ffe6-4040-b09f-997ecd546618",
+        "X-Runtime" : "0.004074",
+        "Content-Length" : "30"
+      },
+      "response_content_type" : "application/json; charset=utf-8",
+      "curl" : "curl \"https://cometogether.com/api/v1/users/74\" -d '' -X DELETE \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Authorization: Token token=test123123\""
+    }
+  ]
+}

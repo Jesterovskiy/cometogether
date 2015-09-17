@@ -1,0 +1,78 @@
+{
+  "resource" : "Users",
+  "http_method" : "PUT",
+  "route" : "/api/v1/users/:id",
+  "description" : "(UPDATE) Update user",
+  "explanation" : null,
+  "parameters" : [
+    {
+      "type" : "Integer",
+      "required" : true,
+      "name" : "id",
+      "description" : "User ID"
+    },
+    {
+      "type" : "String",
+      "scope" : "user",
+      "name" : "first_name",
+      "description" : "First name"
+    },
+    {
+      "type" : "String",
+      "scope" : "user",
+      "name" : "last_name",
+      "description" : "Last name"
+    },
+    {
+      "type" : "String",
+      "scope" : "user",
+      "required" : true,
+      "name" : "email",
+      "description" : "Email"
+    },
+    {
+      "type" : "String",
+      "scope" : "user",
+      "required" : true,
+      "name" : "password",
+      "description" : "Password"
+    },
+    {
+      "type" : "String",
+      "scope" : "user",
+      "name" : "role",
+      "description" : "Role"
+    }
+  ],
+  "response_fields" : [],
+  "requests" : [
+    {
+      "request_method" : "PUT",
+      "request_path" : "/api/v1/users/70",
+      "request_body" : "user[first_name]=Caesar&user[last_name]=Douglas&user[email]=audra.rath%40kilback.co.uk&user[password]=voluptatematenet&user[role]=admin",
+      "request_headers" : {
+        "Accept" : "application/json",
+        "Authorization" : "Token token=test123123",
+        "Content-Type" : "application/x-www-form-urlencoded"
+      },
+      "request_query_parameters" : {},
+      "request_content_type" : "application/x-www-form-urlencoded",
+      "response_status" : 200,
+      "response_status_text" : "OK",
+      "response_body" : "{\"id\":70,\"first_name\":\"Caesar\",\"last_name\":\"Douglas\",\"email\":\"audra.rath@kilback.co.uk\",\"password_digest\":\"$2a$04$sbq0bv81d7U7PyaRo9Lln.cL1Y8uEWqsmR0TDvi8hydvej4gpa7T2\",\"role\":\"admin\",\"created_at\":\"2015-09-17T22:50:14.811Z\",\"updated_at\":\"2015-09-17T22:50:14.818Z\",\"auth_token\":\"60382a57f4ec4b2da6fde9beda5074ff\"}",
+      "response_headers" : {
+        "X-Frame-Options" : "SAMEORIGIN",
+        "X-XSS-Protection" : "1; mode=block",
+        "X-Content-Type-Options" : "nosniff",
+        "Content-Type" : "application/json; charset=utf-8",
+        "ETag" : "W/\"7085a1fdb732efd7842e157e97e938f1\"",
+        "Cache-Control" : "max-age=0, private, must-revalidate",
+        "X-Request-Id" : "359ce081-bc98-4741-9027-b4693d7e3db4",
+        "X-Runtime" : "0.007642",
+        "Content-Length" : "312"
+      },
+      "response_content_type" : "application/json; charset=utf-8",
+      "curl" : "curl \"https://cometogether.com/api/v1/users/70\" -d 'user[first_name]=Caesar&user[last_name]=Douglas&user[email]=audra.rath%40kilback.co.uk&user[password]=voluptatematenet&user[role]=admin' -X PUT \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Authorization: Token token=test123123\""
+    }
+  ]
+}

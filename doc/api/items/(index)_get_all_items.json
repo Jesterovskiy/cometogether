@@ -1,0 +1,37 @@
+{
+  "resource" : "Items",
+  "http_method" : "GET",
+  "route" : "/api/v1/items",
+  "description" : "(INDEX) Get all items",
+  "explanation" : null,
+  "parameters" : [],
+  "response_fields" : [],
+  "requests" : [
+    {
+      "request_method" : "GET",
+      "request_path" : "/api/v1/items",
+      "request_body" : null,
+      "request_headers" : {
+        "Authorization" : "Token token=test123123"
+      },
+      "request_query_parameters" : {},
+      "request_content_type" : null,
+      "response_status" : 200,
+      "response_status_text" : "OK",
+      "response_body" : "[{\"id\":1,\"description\":\"Nam quisquam illo sapiente repellendus nostrum rerum dolorum vitae.\",\"comment\":\"Et a aperiam rerum quia dolor.\",\"event_id\":13,\"created_at\":\"2015-09-17T22:50:14.436Z\",\"updated_at\":\"2015-09-17T22:50:14.436Z\"},{\"id\":2,\"description\":\"Numquam pariatur occaecati accusamus laborum maiores.\",\"comment\":\"Et fugit modi adipisci recusandae odit non rerum aperiam.\",\"event_id\":14,\"created_at\":\"2015-09-17T22:50:14.445Z\",\"updated_at\":\"2015-09-17T22:50:14.445Z\"},{\"id\":3,\"description\":\"Nihil reiciendis iure consequatur non.\",\"comment\":\"Et ut perferendis labore incidunt tempore ipsum explicabo.\",\"event_id\":15,\"created_at\":\"2015-09-17T22:50:14.453Z\",\"updated_at\":\"2015-09-17T22:50:14.453Z\"}]",
+      "response_headers" : {
+        "X-Frame-Options" : "SAMEORIGIN",
+        "X-XSS-Protection" : "1; mode=block",
+        "X-Content-Type-Options" : "nosniff",
+        "Content-Type" : "application/json; charset=utf-8",
+        "ETag" : "W/\"f3bcdf6c8707c74ae4cabb39cb16d6b5\"",
+        "Cache-Control" : "max-age=0, private, must-revalidate",
+        "X-Request-Id" : "bc675d0b-c49a-498e-9b69-949b747909d8",
+        "X-Runtime" : "0.008546",
+        "Content-Length" : "703"
+      },
+      "response_content_type" : "application/json; charset=utf-8",
+      "curl" : "curl \"https://cometogether.com/api/v1/items\" -X GET \\\n\t-H \"Authorization: Token token=test123123\""
+    }
+  ]
+}

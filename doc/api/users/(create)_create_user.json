@@ -1,0 +1,71 @@
+{
+  "resource" : "Users",
+  "http_method" : "POST",
+  "route" : "/api/v1/users",
+  "description" : "(CREATE) Create user",
+  "explanation" : null,
+  "parameters" : [
+    {
+      "type" : "String",
+      "scope" : "user",
+      "name" : "first_name",
+      "description" : "First name"
+    },
+    {
+      "type" : "String",
+      "scope" : "user",
+      "name" : "last_name",
+      "description" : "Last name"
+    },
+    {
+      "type" : "String",
+      "scope" : "user",
+      "required" : true,
+      "name" : "email",
+      "description" : "Email"
+    },
+    {
+      "type" : "String",
+      "scope" : "user",
+      "required" : true,
+      "name" : "password",
+      "description" : "Password"
+    },
+    {
+      "type" : "String",
+      "scope" : "user",
+      "name" : "role",
+      "description" : "Role"
+    }
+  ],
+  "response_fields" : [],
+  "requests" : [
+    {
+      "request_method" : "POST",
+      "request_path" : "/api/v1/users",
+      "request_body" : "user[first_name]=Mireille&user[last_name]=Schroeder&user[email]=chanel%40emard.co.uk&user[password]=nullafugaquos&user[role]=user",
+      "request_headers" : {
+        "Accept" : "application/json",
+        "Content-Type" : "application/x-www-form-urlencoded"
+      },
+      "request_query_parameters" : {},
+      "request_content_type" : "application/x-www-form-urlencoded",
+      "response_status" : 200,
+      "response_status_text" : "OK",
+      "response_body" : "{\"id\":68,\"first_name\":\"Mireille\",\"last_name\":\"Schroeder\",\"email\":\"chanel@emard.co.uk\",\"password_digest\":\"$2a$04$ffaxwsUq5uN9rhVRDx4zJOzslF5/5Ik56k8wumOWhhtpYkZzTENde\",\"role\":\"user\",\"created_at\":\"2015-09-17T22:50:14.792Z\",\"updated_at\":\"2015-09-17T22:50:14.792Z\",\"auth_token\":\"04a7ade7c8c84e178058eb99a3dfe2fd\"}",
+      "response_headers" : {
+        "X-Frame-Options" : "SAMEORIGIN",
+        "X-XSS-Protection" : "1; mode=block",
+        "X-Content-Type-Options" : "nosniff",
+        "Content-Type" : "application/json; charset=utf-8",
+        "ETag" : "W/\"0d3ee305f547213cf45c3bd5244620e5\"",
+        "Cache-Control" : "max-age=0, private, must-revalidate",
+        "X-Request-Id" : "ddc22983-7254-47e4-8cbe-4261a68bf5a4",
+        "X-Runtime" : "0.005530",
+        "Content-Length" : "309"
+      },
+      "response_content_type" : "application/json; charset=utf-8",
+      "curl" : "curl \"https://cometogether.com/api/v1/users\" -d 'user[first_name]=Mireille&user[last_name]=Schroeder&user[email]=chanel%40emard.co.uk&user[password]=nullafugaquos&user[role]=user' -X POST \\\n\t-H \"Accept: application/json\""
+    }
+  ]
+}

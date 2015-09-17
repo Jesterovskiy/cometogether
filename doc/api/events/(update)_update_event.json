@@ -1,0 +1,76 @@
+{
+  "resource" : "Events",
+  "http_method" : "PUT",
+  "route" : "/api/v1/events/:id",
+  "description" : "(UPDATE) Update event",
+  "explanation" : null,
+  "parameters" : [
+    {
+      "type" : "Integer",
+      "required" : true,
+      "name" : "id",
+      "description" : "Event ID"
+    },
+    {
+      "type" : "String",
+      "scope" : "event",
+      "required" : true,
+      "name" : "name",
+      "description" : "Name"
+    },
+    {
+      "type" : "String",
+      "scope" : "event",
+      "name" : "description",
+      "description" : "Description"
+    },
+    {
+      "type" : "String",
+      "scope" : "event",
+      "name" : "location",
+      "description" : "Location"
+    },
+    {
+      "type" : "DateTime",
+      "scope" : "event",
+      "name" : "date",
+      "description" : "Password"
+    },
+    {
+      "type" : "Integer",
+      "scope" : "event",
+      "name" : "user_id",
+      "description" : "User ID"
+    }
+  ],
+  "response_fields" : [],
+  "requests" : [
+    {
+      "request_method" : "PUT",
+      "request_path" : "/api/v1/events/7",
+      "request_body" : "event[name]=ut&event[description]=Et+dolores+aut+ut+voluptas+nihil+molestiae.&event[location]=Myrlberg&event[date]=2013-09-03+00%3A00%3A00+%2B0300&event[user_id]=17",
+      "request_headers" : {
+        "Authorization" : "Token token=test123123",
+        "Content-Type" : "application/x-www-form-urlencoded"
+      },
+      "request_query_parameters" : {},
+      "request_content_type" : "application/x-www-form-urlencoded",
+      "response_status" : 200,
+      "response_status_text" : "OK",
+      "response_body" : "{\"id\":7,\"name\":\"ut\",\"description\":\"Et dolores aut ut voluptas nihil molestiae.\",\"location\":\"Myrlberg\",\"date\":\"2013-09-02T21:00:00.000Z\",\"user_id\":17,\"created_at\":\"2015-09-17T22:50:14.289Z\",\"updated_at\":\"2015-09-17T22:50:14.298Z\"}",
+      "response_headers" : {
+        "X-Frame-Options" : "SAMEORIGIN",
+        "X-XSS-Protection" : "1; mode=block",
+        "X-Content-Type-Options" : "nosniff",
+        "Content-Type" : "application/json; charset=utf-8",
+        "ETag" : "W/\"1a7ac753da2b493ccae2cb5e06360253\"",
+        "Cache-Control" : "max-age=0, private, must-revalidate",
+        "X-Request-Id" : "a9d233c4-67ee-48f0-a133-e6d1de46ba78",
+        "X-Runtime" : "0.006546",
+        "Content-Length" : "229"
+      },
+      "response_content_type" : "application/json; charset=utf-8",
+      "curl" : "curl \"https://cometogether.com/api/v1/events/7\" -d 'event[name]=ut&event[description]=Et+dolores+aut+ut+voluptas+nihil+molestiae.&event[location]=Myrlberg&event[date]=2013-09-03+00%3A00%3A00+%2B0300&event[user_id]=17' -X PUT \\\n\t-H \"Authorization: Token token=test123123\""
+    }
+  ]
+}

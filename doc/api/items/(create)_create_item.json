@@ -1,0 +1,58 @@
+{
+  "resource" : "Items",
+  "http_method" : "POST",
+  "route" : "/api/v1/items",
+  "description" : "(CREATE) Create item",
+  "explanation" : null,
+  "parameters" : [
+    {
+      "type" : "String",
+      "scope" : "item",
+      "required" : true,
+      "name" : "description",
+      "description" : "Description of item"
+    },
+    {
+      "type" : "String",
+      "scope" : "item",
+      "name" : "comment",
+      "description" : "Comment about item"
+    },
+    {
+      "type" : "Integer",
+      "scope" : "item",
+      "name" : "event_id",
+      "description" : "Event ID"
+    }
+  ],
+  "response_fields" : [],
+  "requests" : [
+    {
+      "request_method" : "POST",
+      "request_path" : "/api/v1/items",
+      "request_body" : "item[description]=Wilber&item[comment]=Hirthe&item[event_id]=17",
+      "request_headers" : {
+        "Authorization" : "Token token=test123123",
+        "Content-Type" : "application/x-www-form-urlencoded"
+      },
+      "request_query_parameters" : {},
+      "request_content_type" : "application/x-www-form-urlencoded",
+      "response_status" : 200,
+      "response_status_text" : "OK",
+      "response_body" : "{\"id\":5,\"description\":\"Wilber\",\"comment\":\"Hirthe\",\"event_id\":17,\"created_at\":\"2015-09-17T22:50:14.509Z\",\"updated_at\":\"2015-09-17T22:50:14.509Z\"}",
+      "response_headers" : {
+        "X-Frame-Options" : "SAMEORIGIN",
+        "X-XSS-Protection" : "1; mode=block",
+        "X-Content-Type-Options" : "nosniff",
+        "Content-Type" : "application/json; charset=utf-8",
+        "ETag" : "W/\"ac9721b67d62d56b5fd98f819c27a38a\"",
+        "Cache-Control" : "max-age=0, private, must-revalidate",
+        "X-Request-Id" : "c0db1127-8ca2-42ae-a306-ef3eda94bf07",
+        "X-Runtime" : "0.004084",
+        "Content-Length" : "144"
+      },
+      "response_content_type" : "application/json; charset=utf-8",
+      "curl" : "curl \"https://cometogether.com/api/v1/items\" -d 'item[description]=Wilber&item[comment]=Hirthe&item[event_id]=17' -X POST \\\n\t-H \"Authorization: Token token=test123123\""
+    }
+  ]
+}

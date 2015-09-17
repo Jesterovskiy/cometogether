@@ -1,0 +1,38 @@
+{
+  "resource" : "Users",
+  "http_method" : "GET",
+  "route" : "/api/v1/users",
+  "description" : "(INDEX) Get all users",
+  "explanation" : null,
+  "parameters" : [],
+  "response_fields" : [],
+  "requests" : [
+    {
+      "request_method" : "GET",
+      "request_path" : "/api/v1/users",
+      "request_body" : null,
+      "request_headers" : {
+        "Accept" : "application/json",
+        "Authorization" : "Token token=test123123"
+      },
+      "request_query_parameters" : {},
+      "request_content_type" : null,
+      "response_status" : 200,
+      "response_status_text" : "OK",
+      "response_body" : "[{\"id\":60,\"first_name\":\"Jennings\",\"last_name\":\"Koch\",\"email\":\"john.green@trantow.info\",\"password_digest\":\"$2a$04$6BW/JNGRV6zOXnx7mRtFRO6dS5WfuQveSz48T41NYCY4B0DQqhx8e\",\"role\":\"admin\",\"created_at\":\"2015-09-17T22:50:14.734Z\",\"updated_at\":\"2015-09-17T22:50:14.734Z\",\"auth_token\":\"test123123\"},{\"id\":61,\"first_name\":\"Rylan\",\"last_name\":\"Russel\",\"email\":\"lyda@cummings.co.uk\",\"password_digest\":\"$2a$04$//35J1V3HVZAiOwmI9JWPO.G.GxyZ7DnZcx20U85CbteLVmR7moWq\",\"role\":\"guest\",\"created_at\":\"2015-09-17T22:50:14.737Z\",\"updated_at\":\"2015-09-17T22:50:14.737Z\",\"auth_token\":\"baa4df1e71524d4987d2d65003d71549\"},{\"id\":62,\"first_name\":\"Malika\",\"last_name\":\"Johns\",\"email\":\"nola@willms.us\",\"password_digest\":\"$2a$04$YInmuhIzaTQ.uoo7hr9rgevJQCb9F/EoS6VThL1.r5W4VKtlzmz/C\",\"role\":\"admin\",\"created_at\":\"2015-09-17T22:50:14.741Z\",\"updated_at\":\"2015-09-17T22:50:14.741Z\",\"auth_token\":\"b9f3c82885d94d4aa61e6839a11685dc\"},{\"id\":63,\"first_name\":\"Francis\",\"last_name\":\"Morar\",\"email\":\"jerald@pollichjacobson.biz\",\"password_digest\":\"$2a$04$F0NFtkuJ.h43TRA6ZpDvA.bP7gq6celWX6zQmMj5Fc/r0rJf/WG8q\",\"role\":\"guest\",\"created_at\":\"2015-09-17T22:50:14.744Z\",\"updated_at\":\"2015-09-17T22:50:14.744Z\",\"auth_token\":\"01133ae3706f4f9b891dd36434920c4f\"}]",
+      "response_headers" : {
+        "X-Frame-Options" : "SAMEORIGIN",
+        "X-XSS-Protection" : "1; mode=block",
+        "X-Content-Type-Options" : "nosniff",
+        "Content-Type" : "application/json; charset=utf-8",
+        "ETag" : "W/\"ffeceb50c136203201586ab721bb5d96\"",
+        "Cache-Control" : "max-age=0, private, must-revalidate",
+        "X-Request-Id" : "5f981302-cdce-4251-a232-16581a08fefb",
+        "X-Runtime" : "0.006019",
+        "Content-Length" : "1211"
+      },
+      "response_content_type" : "application/json; charset=utf-8",
+      "curl" : "curl \"https://cometogether.com/api/v1/users\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Authorization: Token token=test123123\""
+    }
+  ]
+}

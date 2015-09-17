@@ -12,13 +12,13 @@ RSpec.resource 'Users' do
       let(:email)    { user.email }
       let(:password) { user.password }
 
-      example_request 'Get auth token' do
+      example_request '(SIGN_IN) Get auth token' do
         expect(status).to be(200)
         expect(response_body).to eq({ message: 'Your auth token is ' + user.auth_token }.to_json)
       end
     end
 
-    context 'with invalid params' do
+    context 'with invalid params', document: nil do
       let(:user)     { Fabricate(:user) }
       let(:email)    { 'BlahBlah@gmail.com' }
       let(:password) { 'IDontKnow' }
@@ -39,7 +39,7 @@ RSpec.resource 'Users' do
       let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
       let!(:users) { Fabricate.times(3, :user) }
 
-      example_request 'Get users list' do
+      example_request '(INDEX) Get all users' do
         expect(status).to be(200)
         expect(response_body).to eq(([current_user] + users).to_json)
       end
@@ -56,13 +56,13 @@ RSpec.resource 'Users' do
         let(:user) { Fabricate(:user) }
         let(:id)   { user.id }
 
-        example_request 'Get user attributes' do
+        example_request '(SHOW) Get user' do
           expect(status).to be(200)
           expect(response_body).to eq(user.to_json)
         end
       end
 
-      context 'when user is current_user' do
+      context 'when user is current_user', document: nil do
         let(:user) { Fabricate(:user, auth_token: 'test123123', role: 'user') }
         let(:id)   { user.id }
 
@@ -73,7 +73,7 @@ RSpec.resource 'Users' do
       end
     end
 
-    context 'with invalid params' do
+    context 'with invalid params', document: nil do
       let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
       let(:id)            { 100_500 }
 
@@ -98,13 +98,13 @@ RSpec.resource 'Users' do
       let(:password)   { FFaker::Internet.password }
       let(:role)       { User::ROLES.sample }
 
-      example_request 'Create user' do
+      example_request '(CREATE) Create user' do
         expect(status).to be(200)
         expect(response_body).to eq(User.last.to_json)
       end
     end
 
-    context 'with invalid params' do
+    context 'with invalid params', document: nil do
       let(:first_name) { FFaker::Name.first_name }
       let(:last_name)  { FFaker::Name.last_name }
 
@@ -139,13 +139,13 @@ RSpec.resource 'Users' do
       context 'when user admin' do
         let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
 
-        example_request 'Update user attributes' do
+        example_request '(UPDATE) Update user' do
           expect(status).to be(200)
           expect(response_body).to eq(User.last.to_json)
         end
       end
 
-      context 'when user is current_user' do
+      context 'when user is current_user', document: nil do
         let(:user) { Fabricate(:user, auth_token: 'test123123', role: 'user') }
 
         example_request 'Update user attributes' do
@@ -155,7 +155,7 @@ RSpec.resource 'Users' do
       end
     end
 
-    context 'with invalid params' do
+    context 'with invalid params', document: nil do
       let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
       let(:id) { 100_500 }
 
@@ -177,14 +177,14 @@ RSpec.resource 'Users' do
       context 'when user admin' do
         let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
 
-        example_request 'Get message' do
+        example_request '(DELETE) Delete user' do
           expect(status).to be(200)
           expect(User.count).to be(1)
           expect(response_body).to eq({ message: 'Resource deleted' }.to_json)
         end
       end
 
-      context 'when user is current_user' do
+      context 'when user is current_user', document: nil do
         let(:user) { Fabricate(:user, auth_token: 'test123123', role: 'user') }
 
         example_request 'Get message' do
@@ -195,7 +195,7 @@ RSpec.resource 'Users' do
       end
     end
 
-    context 'with invalid params' do
+    context 'with invalid params', document: nil do
       let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
       let(:id) { 100_500 }
 

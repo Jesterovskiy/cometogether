@@ -6,9 +6,9 @@ RSpec.resource 'Events' do
   get '/api/v1/events' do
     context 'with valid params' do
       let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
-      let!(:events) { Fabricate.times(3, :event) }
+      let!(:events)       { Fabricate.times(3, :event) }
 
-      example_request 'Get events list' do
+      example_request '(INDEX) Get all events' do
         expect(status).to be(200)
         expect(response_body).to eq(events.to_json)
       end
@@ -20,19 +20,19 @@ RSpec.resource 'Events' do
 
     context 'with valid params' do
       let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
-      let(:event) { Fabricate(:event) }
-      let(:id)    { event.id }
+      let(:event)         { Fabricate(:event) }
+      let(:id)            { event.id }
 
-      example_request 'Get event attributes' do
+      example_request '(SHOW) Get event' do
         expect(status).to be(200)
         expect(response_body).to eq(event.to_json)
       end
     end
 
-    context 'with invalid params' do
+    context 'with invalid params', document: nil do
       let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
-      let(:event) { Fabricate(:event) }
-      let(:id)    { 100_500 }
+      let(:event)         { Fabricate(:event) }
+      let(:id)            { 100_500 }
 
       example_request 'Get error message' do
         expect(status).to be(404)
@@ -58,13 +58,13 @@ RSpec.resource 'Events' do
       context 'when user is admin' do
         let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
 
-        example_request 'Get event attributes' do
+        example_request '(CREATE) Create event' do
           expect(status).to be(200)
           expect(response_body).to eq(Event.last.to_json)
         end
       end
 
-      context 'when user is user' do
+      context 'when user is user', document: nil do
         let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'user') }
 
         example_request 'Get event attributes' do
@@ -73,7 +73,7 @@ RSpec.resource 'Events' do
         end
       end
 
-      context 'when user is guest' do
+      context 'when user is guest', document: nil do
         let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'guest') }
 
         example_request 'Get error message' do
@@ -85,9 +85,9 @@ RSpec.resource 'Events' do
       end
     end
 
-    context 'with invalid params' do
+    context 'with invalid params', document: nil do
       let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
-      let(:description) { FFaker::Lorem.phrase }
+      let(:description)   { FFaker::Lorem.phrase }
 
       example_request 'Get error message' do
         expect(status).to be(400)
@@ -105,8 +105,8 @@ RSpec.resource 'Events' do
     parameter :user_id, 'User ID', type: 'Integer', scope: :event
 
     context 'with valid params' do
-      let(:event)      { Fabricate(:event) }
-      let(:id)         { event.id }
+      let(:event)       { Fabricate(:event) }
+      let(:id)          { event.id }
       let(:name)        { FFaker::Lorem.word }
       let(:description) { FFaker::Lorem.phrase }
       let(:location)    { FFaker::Address.city }
@@ -116,13 +116,13 @@ RSpec.resource 'Events' do
       context 'when user is admin' do
         let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
 
-        example_request 'Update event attributes' do
+        example_request '(UPDATE) Update event' do
           expect(status).to be(200)
           expect(response_body).to eq(Event.last.to_json)
         end
       end
 
-      context 'when user is current_user' do
+      context 'when user is current_user', document: nil do
         let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'user') }
         let(:event)         { Fabricate(:event, user: current_user) }
 
@@ -132,7 +132,7 @@ RSpec.resource 'Events' do
         end
       end
 
-      context 'when user is guest' do
+      context 'when user is guest', document: nil do
         let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'guest') }
 
         example_request 'Get error message' do
@@ -144,7 +144,7 @@ RSpec.resource 'Events' do
       end
     end
 
-    context 'with invalid params' do
+    context 'with invalid params', document: nil do
       let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
       let(:id) { 100_500 }
 
@@ -165,16 +165,16 @@ RSpec.resource 'Events' do
       context 'when user is admin' do
         let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
 
-        example_request 'Delete event' do
+        example_request '(DELETE) Delete event' do
           expect(status).to be(200)
           expect(Event.count).to be(0)
           expect(response_body).to eq({ message: 'Resource deleted' }.to_json)
         end
       end
 
-      context 'when user is current_user' do
+      context 'when user is current_user', document: nil do
         let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'user') }
-        let(:event) { Fabricate(:event, user: current_user) }
+        let(:event)         { Fabricate(:event, user: current_user) }
 
         example_request 'Delete event' do
           expect(status).to be(200)
@@ -183,7 +183,7 @@ RSpec.resource 'Events' do
         end
       end
 
-      context 'when user is guest' do
+      context 'when user is guest', document: nil do
         let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'guest') }
 
         example_request 'Get error message' do
@@ -195,7 +195,7 @@ RSpec.resource 'Events' do
       end
     end
 
-    context 'with invalid params' do
+    context 'with invalid params', document: nil do
       let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
       let(:id) { 100_500 }
 
