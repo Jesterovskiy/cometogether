@@ -1,3 +1,6 @@
+##
+# Class: Auth policy for Event
+#
 class EventPolicy
   attr_reader :user, :event
 

@@ -6,11 +6,21 @@ RSpec.resource 'Items' do
   get '/api/v1/items' do
     context 'with valid params' do
       let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
-      let!(:items) { Fabricate.times(3, :item) }
+      let!(:items)        { Fabricate.times(3, :item) }
 
       example_request '(INDEX) Get all items' do
         expect(status).to be(200)
         expect(response_body).to eq(items.to_json)
+      end
+    end
+
+    context 'with invalid token', document: nil do
+      let!(:current_user) { Fabricate(:user, auth_token: 'test321321', role: 'admin') }
+      let!(:items)        { Fabricate.times(3, :item) }
+
+      example_request 'Get error message' do
+        expect(status).to be(401)
+        expect(response_body).to eq({ message: 'Token is wrong. Try again.' }.to_json)
       end
     end
   end

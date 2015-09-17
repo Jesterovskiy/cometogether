@@ -45,15 +45,13 @@ class API::V1::UsersController < ApplicationController
   def update
     user = User.find_by(id: params['id'])
 
-    if user
-      authorize user
-      if user.update(user_params)
-        render json: UserPresenter.new(user), status: 200
-      else
-        render json: { message: user.errors }, status: 400
-      end
+    return render json: { message: 'Resource not found' }, status: 404 unless user
+
+    authorize user
+    if user.update(user_params)
+      render json: UserPresenter.new(user), status: 200
     else
-      render json: { message: 'Resource not found' }, status: 404
+      render json: { message: user.errors }, status: 400
     end
   end
 

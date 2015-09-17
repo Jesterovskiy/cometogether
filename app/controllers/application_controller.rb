@@ -6,9 +6,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  def current_user
-    @current_user
-  end
+  attr_reader :current_user
   helper_method :current_user
 
   include Pundit
@@ -27,7 +25,7 @@ protected
   end
 
   def authenticate_token
-    authenticate_with_http_token do |token, options|
+    authenticate_with_http_token do |token, _options|
       @current_user = User.find_by(auth_token: token)
     end
   end

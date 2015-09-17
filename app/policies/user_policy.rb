@@ -1,3 +1,6 @@
+##
+# Class: Auth policy for User
+#
 class UserPolicy
   attr_reader :current_user, :user
 
@@ -6,20 +9,12 @@ class UserPolicy
     @user = user
   end
 
-  def sign_in?
-    true
-  end
-
   def index?
     current_user.is?(:admin)
   end
 
   def show?
     current_user.is?(:admin) || current_user == user
-  end
-
-  def create?
-    true
   end
 
   def update?

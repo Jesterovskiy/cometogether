@@ -1,3 +1,6 @@
+##
+# Class: Auth policy for Item
+#
 class ItemPolicy
   attr_reader :user, :item
 

@@ -44,6 +44,16 @@ RSpec.resource 'Users' do
         expect(response_body).to eq(([current_user] + users).to_json)
       end
     end
+
+    context 'with invalid token', document: nil do
+      let!(:current_user) { Fabricate(:user, auth_token: 'test321321', role: 'admin') }
+      let!(:users) { Fabricate.times(3, :user) }
+
+      example_request 'Get error message' do
+        expect(status).to be(401)
+        expect(response_body).to eq({ message: 'Token is wrong. Try again.' }.to_json)
+      end
+    end
   end
 
   get '/api/v1/users/:id' do
