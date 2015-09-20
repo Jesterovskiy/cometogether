@@ -2,6 +2,8 @@
 Simple REST JSON API for creating events with different things
 
 [![Codeship Status for Jesterovskiy/cometogether](https://codeship.com/projects/682ff1a0-388f-0133-fbc2-6e9a9ee8621b/status?branch=master)](https://codeship.com/projects/101347)
+[![Code Climate](https://codeclimate.com/github/Jesterovskiy/cometogether/badges/gpa.svg)](https://codeclimate.com/github/Jesterovskiy/cometogether)
+[![Test Coverage](https://codeclimate.com/github/Jesterovskiy/cometogether/badges/coverage.svg)](https://codeclimate.com/github/Jesterovskiy/cometogether/coverage)
 
 ## Local setup
 
