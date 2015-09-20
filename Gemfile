@@ -1,7 +1,15 @@
 source 'https://rubygems.org'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.4'
+BUNDLE_RAILS_VERSION = '~> 4.2.4'
+
+# Rails
+gem 'railties',      BUNDLE_RAILS_VERSION
+gem 'activerecord',  BUNDLE_RAILS_VERSION
+gem 'activesupport', BUNDLE_RAILS_VERSION
+gem 'actionpack',    BUNDLE_RAILS_VERSION
+
+# API
+gem 'rails-api'
 
 # Database
 gem 'pg'
