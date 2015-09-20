@@ -65,33 +65,11 @@ RSpec.resource 'Events' do
       let(:date)        { FFaker::Time.date }
       let(:user_id)     { Fabricate(:user).id }
 
-      context 'when user is admin' do
-        let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
+      let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
 
-        example_request '(CREATE) Create event' do
-          expect(status).to be(200)
-          expect(response_body).to eq(Event.last.to_json)
-        end
-      end
-
-      context 'when user is user', document: nil do
-        let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'user') }
-
-        example_request 'Get event attributes' do
-          expect(status).to be(200)
-          expect(response_body).to eq(Event.last.to_json)
-        end
-      end
-
-      context 'when user is guest', document: nil do
-        let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'guest') }
-
-        example_request 'Get error message' do
-          expect(status).to be(401)
-          expect(response_body).to eq({
-            message: 'You are not authorized to perform this action.'
-          }.to_json)
-        end
+      example_request '(CREATE) Create event' do
+        expect(status).to be(200)
+        expect(response_body).to eq(Event.last.to_json)
       end
     end
 
@@ -123,34 +101,11 @@ RSpec.resource 'Events' do
       let(:date)        { FFaker::Time.date }
       let(:user_id)     { Fabricate(:user).id }
 
-      context 'when user is admin' do
-        let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
+      let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
 
-        example_request '(UPDATE) Update event' do
-          expect(status).to be(200)
-          expect(response_body).to eq(Event.last.to_json)
-        end
-      end
-
-      context 'when user is current_user', document: nil do
-        let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'user') }
-        let(:event)         { Fabricate(:event, user: current_user) }
-
-        example_request 'Update event attributes' do
-          expect(status).to be(200)
-          expect(response_body).to eq(Event.last.to_json)
-        end
-      end
-
-      context 'when user is guest', document: nil do
-        let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'guest') }
-
-        example_request 'Get error message' do
-          expect(status).to be(401)
-          expect(response_body).to eq({
-            message: 'You are not authorized to perform this action.'
-          }.to_json)
-        end
+      example_request '(UPDATE) Update event' do
+        expect(status).to be(200)
+        expect(response_body).to eq(Event.last.to_json)
       end
     end
 
@@ -172,36 +127,12 @@ RSpec.resource 'Events' do
       let(:event) { Fabricate(:event) }
       let(:id)    { event.id }
 
-      context 'when user is admin' do
-        let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
+      let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
 
-        example_request '(DELETE) Delete event' do
-          expect(status).to be(200)
-          expect(Event.count).to be(0)
-          expect(response_body).to eq({ message: 'Resource deleted' }.to_json)
-        end
-      end
-
-      context 'when user is current_user', document: nil do
-        let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'user') }
-        let(:event)         { Fabricate(:event, user: current_user) }
-
-        example_request 'Delete event' do
-          expect(status).to be(200)
-          expect(Event.count).to be(0)
-          expect(response_body).to eq({ message: 'Resource deleted' }.to_json)
-        end
-      end
-
-      context 'when user is guest', document: nil do
-        let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'guest') }
-
-        example_request 'Get error message' do
-          expect(status).to be(401)
-          expect(response_body).to eq({
-            message: 'You are not authorized to perform this action.'
-          }.to_json)
-        end
+      example_request '(DELETE) Delete event' do
+        expect(status).to be(200)
+        expect(Event.count).to be(0)
+        expect(response_body).to eq({ message: 'Resource deleted' }.to_json)
       end
     end
 

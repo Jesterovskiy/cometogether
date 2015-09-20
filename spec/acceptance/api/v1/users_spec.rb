@@ -61,25 +61,13 @@ RSpec.resource 'Users' do
     parameter :id, 'User ID', type: 'Integer', required: true
 
     context 'with valid params' do
-      context 'when user admin' do
-        let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
-        let(:user) { Fabricate(:user) }
-        let(:id)   { user.id }
+      let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
+      let(:user) { Fabricate(:user) }
+      let(:id)   { user.id }
 
-        example_request '(SHOW) Get user' do
-          expect(status).to be(200)
-          expect(response_body).to eq(user.to_json)
-        end
-      end
-
-      context 'when user is current_user', document: nil do
-        let(:user) { Fabricate(:user, auth_token: 'test123123', role: 'user') }
-        let(:id)   { user.id }
-
-        example_request 'Get user attributes' do
-          expect(status).to be(200)
-          expect(response_body).to eq(user.to_json)
-        end
+      example_request '(SHOW) Get user' do
+        expect(status).to be(200)
+        expect(response_body).to eq(user.to_json)
       end
     end
 
@@ -146,22 +134,11 @@ RSpec.resource 'Users' do
       let(:password)   { FFaker::Internet.password }
       let(:role)       { User::ROLES.sample }
 
-      context 'when user admin' do
-        let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
+      let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
 
-        example_request '(UPDATE) Update user' do
-          expect(status).to be(200)
-          expect(response_body).to eq(User.last.to_json)
-        end
-      end
-
-      context 'when user is current_user', document: nil do
-        let(:user) { Fabricate(:user, auth_token: 'test123123', role: 'user') }
-
-        example_request 'Update user attributes' do
-          expect(status).to be(200)
-          expect(response_body).to eq(User.last.to_json)
-        end
+      example_request '(UPDATE) Update user' do
+        expect(status).to be(200)
+        expect(response_body).to eq(User.last.to_json)
       end
     end
 
@@ -184,24 +161,12 @@ RSpec.resource 'Users' do
       let(:user) { Fabricate(:user) }
       let(:id)   { user.id }
 
-      context 'when user admin' do
-        let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
+      let!(:current_user) { Fabricate(:user, auth_token: 'test123123', role: 'admin') }
 
-        example_request '(DELETE) Delete user' do
-          expect(status).to be(200)
-          expect(User.count).to be(1)
-          expect(response_body).to eq({ message: 'Resource deleted' }.to_json)
-        end
-      end
-
-      context 'when user is current_user', document: nil do
-        let(:user) { Fabricate(:user, auth_token: 'test123123', role: 'user') }
-
-        example_request 'Get message' do
-          expect(status).to be(200)
-          expect(User.count).to be(0)
-          expect(response_body).to eq({ message: 'Resource deleted' }.to_json)
-        end
+      example_request '(DELETE) Delete user' do
+        expect(status).to be(200)
+        expect(User.count).to be(1)
+        expect(response_body).to eq({ message: 'Resource deleted' }.to_json)
       end
     end
 
