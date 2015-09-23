@@ -20,13 +20,17 @@ rake db:migrate
 rake db:migrate RAILS_ENV=test
 ```
 
+### Seed data
+
+```
+rake db:seed
+```
+
 ### Run
 
 ```
 bin/rails s
 ```
-
-### Development
 
 ### Testing
 
