@@ -18,10 +18,10 @@ class UserPolicy
   end
 
   def update?
-    current_user.is?(:admin) || current_user == user
+    current_user.is?(:admin) || current_user == user && !user.is?(:guest)
   end
 
   def destroy?
-    current_user.is?(:admin) || current_user == user
+    current_user.is?(:admin) || current_user == user && !user.is?(:guest)
   end
 end

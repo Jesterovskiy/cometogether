@@ -65,8 +65,8 @@ RSpec.describe UserPolicy do
     context 'guest' do
       let(:user) { Fabricate(:user, role: 'guest') }
 
-      it 'grants access' do
-        expect(subject).to permit(user, user)
+      it 'denies access' do
+        expect(subject).not_to permit(user, user)
       end
     end
   end
@@ -89,8 +89,8 @@ RSpec.describe UserPolicy do
     context 'guest' do
       let(:user) { Fabricate(:user, role: 'guest') }
 
-      it 'grants access' do
-        expect(subject).to permit(user, user)
+      it 'denies access' do
+        expect(subject).not_to permit(user, user)
       end
     end
   end
