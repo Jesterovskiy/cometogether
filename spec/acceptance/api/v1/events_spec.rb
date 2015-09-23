@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.resource 'Events' do
+RSpec.resource 'Events', type: :controller do
   include Helpers
   header 'Authorization', 'Token token=test123123'
 
@@ -21,9 +21,9 @@ RSpec.resource 'Events' do
 
       example_request 'Get error message' do
         expect(status).to be(401)
-        expect(JSON.parse(response_body)['error']).to eq({
+        expect(JSON.parse(response_body)['error']).to eq(
           'status' => 401, 'title' => 'Token is wrong. Try again.'
-        })
+        )
       end
     end
   end
@@ -49,9 +49,9 @@ RSpec.resource 'Events' do
 
       example_request 'Get error message' do
         expect(status).to be(404)
-        expect(JSON.parse(response_body)['error']).to eq({
+        expect(JSON.parse(response_body)['error']).to eq(
           'status' => 404, 'title' => 'Resource not found'
-        })
+        )
       end
     end
   end
@@ -84,9 +84,9 @@ RSpec.resource 'Events' do
 
       example_request 'Get error message' do
         expect(status).to be(400)
-        expect(JSON.parse(response_body)['error']).to eq({
+        expect(JSON.parse(response_body)['error']).to eq(
           'status' => 400, 'title' => { 'name' => ["can't be blank"] }
-        })
+        )
       end
     end
   end
@@ -122,9 +122,9 @@ RSpec.resource 'Events' do
 
       example_request 'Get error message' do
         expect(status).to be(404)
-        expect(JSON.parse(response_body)['error']).to eq({
+        expect(JSON.parse(response_body)['error']).to eq(
           'status' => 404, 'title' => 'Resource not found'
-        })
+        )
       end
     end
   end
@@ -151,9 +151,9 @@ RSpec.resource 'Events' do
 
       example_request 'Get error message' do
         expect(status).to be(404)
-        expect(JSON.parse(response_body)['error']).to eq({
+        expect(JSON.parse(response_body)['error']).to eq(
           'status' => 404, 'title' => 'Resource not found'
-        })
+        )
       end
     end
   end

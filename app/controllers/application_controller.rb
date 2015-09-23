@@ -12,7 +12,7 @@ class ApplicationController < ActionController::API
 private
 
   def user_not_authorized
-    render json: AuthPresenter.new(
+    render json: ResponsePresenter.new(
       error: 'You are not authorized to perform this action.', status: 401
     ), status: 401
   end
@@ -28,7 +28,7 @@ private
   end
 
   def render_unauthorized
-    render json: AuthPresenter.new(
+    render json: ResponsePresenter.new(
       error: 'Token is wrong. Try again.', status: 401
     ), status: 401
   end

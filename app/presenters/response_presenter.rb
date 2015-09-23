@@ -1,7 +1,7 @@
 ##
-# Class: Item presenter
+# Class: Event presenter
 #
-class ItemPresenter < BasePresenter
+class ResponsePresenter < BasePresenter
   def as_json(_options={})
     prepare_hash
   end

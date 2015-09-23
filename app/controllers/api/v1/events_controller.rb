@@ -8,7 +8,7 @@ class API::V1::EventsController < ApplicationController
     events = Event.all
     authorize events
 
-    render json: EventsListPresenter.new(events), status: 200
+    render json: ResponsePresenter.new(events), status: 200
   end
 
   def show
@@ -16,9 +16,9 @@ class API::V1::EventsController < ApplicationController
 
     if event
       authorize event
-      render json: EventPresenter.new(event), status: 200
+      render json: ResponsePresenter.new(event), status: 200
     else
-      render json: EventPresenter.new(error: 'Resource not found', status: 404), status: 404
+      render json: ResponsePresenter.new(error: 'Resource not found', status: 404), status: 404
     end
   end
 
@@ -28,9 +28,9 @@ class API::V1::EventsController < ApplicationController
 
     if event.valid?
       event.save
-      render json: EventPresenter.new(event), status: 200
+      render json: ResponsePresenter.new(event), status: 200
     else
-      render json: EventPresenter.new(error: event.errors, status: 400), status: 400
+      render json: ResponsePresenter.new(error: event.errors, status: 400), status: 400
     end
   end
 
@@ -39,12 +39,12 @@ class API::V1::EventsController < ApplicationController
       authorize event
 
       if event.update(event_params)
-        render json: EventPresenter.new(event), status: 200
+        render json: ResponsePresenter.new(event), status: 200
       else
-        render json: EventPresenter.new(error: event.errors, status: 400), status: 400
+        render json: ResponsePresenter.new(error: event.errors, status: 400), status: 400
       end
     else
-      render json: EventPresenter.new(error: 'Resource not found', status: 404), status: 404
+      render json: ResponsePresenter.new(error: 'Resource not found', status: 404), status: 404
     end
   end
 
@@ -54,9 +54,9 @@ class API::V1::EventsController < ApplicationController
     if event
       authorize event
       event.delete
-      render json: EventPresenter.new(event), status: 200
+      render json: ResponsePresenter.new(event), status: 200
     else
-      render json: EventPresenter.new(error: 'Resource not found', status: 404), status: 404
+      render json: ResponsePresenter.new(error: 'Resource not found', status: 404), status: 404
     end
   end
 
