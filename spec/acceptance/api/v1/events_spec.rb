@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.resource 'Events' do
+  include Helpers
   header 'Authorization', 'Token token=test123123'
 
   get '/api/v1/events' do
@@ -10,7 +11,7 @@ RSpec.resource 'Events' do
 
       example_request '(INDEX) Get all events' do
         expect(status).to be(200)
-        expect(response_body).to eq(events.to_json)
+        expect(JSON.parse(response_body)['data']).to eq(events.map { |event| event_hash(event) })
       end
     end
 
@@ -20,7 +21,9 @@ RSpec.resource 'Events' do
 
       example_request 'Get error message' do
         expect(status).to be(401)
-        expect(response_body).to eq({ message: 'Token is wrong. Try again.' }.to_json)
+        expect(JSON.parse(response_body)['error']).to eq({
+          'status' => 401, 'title' => 'Token is wrong. Try again.'
+        })
       end
     end
   end
@@ -35,7 +38,7 @@ RSpec.resource 'Events' do
 
       example_request '(SHOW) Get event' do
         expect(status).to be(200)
-        expect(response_body).to eq(event.to_json)
+        expect(JSON.parse(response_body)['data']).to eq(event_hash(event))
       end
     end
 
@@ -46,7 +49,9 @@ RSpec.resource 'Events' do
 
       example_request 'Get error message' do
         expect(status).to be(404)
-        expect(response_body).to eq({ message: 'Resource not found' }.to_json)
+        expect(JSON.parse(response_body)['error']).to eq({
+          'status' => 404, 'title' => 'Resource not found'
+        })
       end
     end
   end
@@ -69,7 +74,7 @@ RSpec.resource 'Events' do
 
       example_request '(CREATE) Create event' do
         expect(status).to be(200)
-        expect(response_body).to eq(Event.last.to_json)
+        expect(JSON.parse(response_body)['data']).to eq(event_hash(Event.last))
       end
     end
 
@@ -79,7 +84,9 @@ RSpec.resource 'Events' do
 
       example_request 'Get error message' do
         expect(status).to be(400)
-        expect(response_body).to eq({ message: { name: ["can't be blank"] } }.to_json)
+        expect(JSON.parse(response_body)['error']).to eq({
+          'status' => 400, 'title' => { 'name' => ["can't be blank"] }
+        })
       end
     end
   end
@@ -105,7 +112,7 @@ RSpec.resource 'Events' do
 
       example_request '(UPDATE) Update event' do
         expect(status).to be(200)
-        expect(response_body).to eq(Event.last.to_json)
+        expect(JSON.parse(response_body)['data']).to eq(event_hash(Event.last))
       end
     end
 
@@ -115,7 +122,9 @@ RSpec.resource 'Events' do
 
       example_request 'Get error message' do
         expect(status).to be(404)
-        expect(response_body).to eq({ message: 'Resource not found' }.to_json)
+        expect(JSON.parse(response_body)['error']).to eq({
+          'status' => 404, 'title' => 'Resource not found'
+        })
       end
     end
   end
@@ -132,7 +141,7 @@ RSpec.resource 'Events' do
       example_request '(DELETE) Delete event' do
         expect(status).to be(200)
         expect(Event.count).to be(0)
-        expect(response_body).to eq({ message: 'Resource deleted' }.to_json)
+        expect(JSON.parse(response_body)['data']).to eq(event_hash(event))
       end
     end
 
@@ -142,7 +151,9 @@ RSpec.resource 'Events' do
 
       example_request 'Get error message' do
         expect(status).to be(404)
-        expect(response_body).to eq({ message: 'Resource not found' }.to_json)
+        expect(JSON.parse(response_body)['error']).to eq({
+          'status' => 404, 'title' => 'Resource not found'
+        })
       end
     end
   end

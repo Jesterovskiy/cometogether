@@ -18,7 +18,7 @@ class API::V1::EventsController < ApplicationController
       authorize event
       render json: EventPresenter.new(event), status: 200
     else
-      render json: { message: 'Resource not found' }, status: 404
+      render json: EventPresenter.new(error: 'Resource not found', status: 404), status: 404
     end
   end
 
@@ -30,7 +30,7 @@ class API::V1::EventsController < ApplicationController
       event.save
       render json: EventPresenter.new(event), status: 200
     else
-      render json: { message: event.errors }, status: 400
+      render json: EventPresenter.new(error: event.errors, status: 400), status: 400
     end
   end
 
@@ -41,10 +41,10 @@ class API::V1::EventsController < ApplicationController
       if event.update(event_params)
         render json: EventPresenter.new(event), status: 200
       else
-        render json: { message: event.errors }, status: 400
+        render json: EventPresenter.new(error: event.errors, status: 400), status: 400
       end
     else
-      render json: { message: 'Resource not found' }, status: 404
+      render json: EventPresenter.new(error: 'Resource not found', status: 404), status: 404
     end
   end
 
@@ -54,9 +54,9 @@ class API::V1::EventsController < ApplicationController
     if event
       authorize event
       event.delete
-      render json: { message: 'Resource deleted' }, status: 200
+      render json: EventPresenter.new(event), status: 200
     else
-      render json: { message: 'Resource not found' }, status: 404
+      render json: EventPresenter.new(error: 'Resource not found', status: 404), status: 404
     end
   end
 

@@ -1,14 +1,15 @@
 ##
 # Class: Item presenter
 #
-class ItemPresenter
+class ItemPresenter < BasePresenter
   def as_json(_options={})
-    @item
+    prepare_hash
   end
 
 private
 
   def initialize(item)
-    @item = item
+    @items = item
+    super
   end
 end

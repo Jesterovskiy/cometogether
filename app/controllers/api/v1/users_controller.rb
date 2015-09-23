@@ -8,9 +8,11 @@ class API::V1::UsersController < ApplicationController
     user = User.find_by_email(user_params['email'])
 
     if user && user.authenticate(user_params['password'])
-      render json: { message: 'Your auth token is ' + user.auth_token }, status: 200
+      render json: UserPresenter.new(user), status: 200
     else
-      render json: { message: 'Email or password is wrong. Try again.' }, status: 401
+      render json: ItemPresenter.new(
+        error: 'Email or password is wrong. Try again.', status: 401
+      ), status: 401
     end
   end
 
@@ -28,7 +30,7 @@ class API::V1::UsersController < ApplicationController
       authorize user
       render json: UserPresenter.new(user), status: 200
     else
-      render json: { message: 'Resource not found' }, status: 404
+      render json: UserPresenter.new(error: 'Resource not found', status: 404), status: 404
     end
   end
 
@@ -38,20 +40,22 @@ class API::V1::UsersController < ApplicationController
     if user.valid?
       render json: UserPresenter.new(user), status: 200
     else
-      render json: { message: user.errors }, status: 400
+      render json: UserPresenter.new(error: user.errors, status: 400), status: 400
     end
   end
 
   def update
     user = User.find_by(id: params['id'])
 
-    return render json: { message: 'Resource not found' }, status: 404 unless user
+    return render json: UserPresenter.new(
+      error: 'Resource not found', status: 404
+    ), status: 404 unless user
 
     authorize user
     if user.update(user_params)
       render json: UserPresenter.new(user), status: 200
     else
-      render json: { message: user.errors }, status: 400
+      render json: UserPresenter.new(error: user.errors, status: 400), status: 400
     end
   end
 
@@ -61,9 +65,9 @@ class API::V1::UsersController < ApplicationController
     if user
       authorize user
       user.delete
-      render json: { message: 'Resource deleted' }, status: 200
+      render json: UserPresenter.new(user), status: 200
     else
-      render json: { message: 'Resource not found' }, status: 404
+      render json: UserPresenter.new(error: 'Resource not found', status: 404), status: 404
     end
   end
 

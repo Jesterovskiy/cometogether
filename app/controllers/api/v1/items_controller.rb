@@ -18,7 +18,7 @@ class API::V1::ItemsController < ApplicationController
       authorize item
       render json: ItemPresenter.new(item), status: 200
     else
-      render json: { message: 'Resource not found' }, status: 404
+      render json: ItemPresenter.new(error: 'Resource not found', status: 404), status: 404
     end
   end
 
@@ -30,7 +30,7 @@ class API::V1::ItemsController < ApplicationController
       item.save
       render json: ItemPresenter.new(item), status: 200
     else
-      render json: { message: item.errors }, status: 400
+      render json: ItemPresenter.new(error: item.errors, status: 400), status: 400
     end
   end
 
@@ -40,10 +40,10 @@ class API::V1::ItemsController < ApplicationController
       if item.update(item_params)
         render json: ItemPresenter.new(item), status: 200
       else
-        render json: { message: item.errors }, status: 400
+        render json: ItemPresenter.new(error: item.errors, status: 400), status: 400
       end
     else
-      render json: { message: 'Resource not found' }, status: 404
+      render json: ItemPresenter.new(error: 'Resource not found', status: 404), status: 404
     end
   end
 
@@ -53,9 +53,9 @@ class API::V1::ItemsController < ApplicationController
     if item
       authorize item
       item.delete
-      render json: { message: 'Resource deleted' }, status: 200
+      render json: ItemPresenter.new(item), status: 200
     else
-      render json: { message: 'Resource not found' }, status: 404
+      render json: ItemPresenter.new(error: 'Resource not found', status: 404), status: 404
     end
   end
 
