@@ -35,8 +35,8 @@
   "requests" : [
     {
       "request_method" : "PUT",
-      "request_path" : "/api/v1/items/7",
-      "request_body" : "item[description]=Makenna&item[comment]=Franecki&item[event_id]=21",
+      "request_path" : "/api/v1/items/9",
+      "request_body" : "item[description]=Gracie&item[comment]=Cruickshank&item[event_id]=20",
       "request_headers" : {
         "Authorization" : "Token token=test123123",
         "Content-Type" : "application/x-www-form-urlencoded"
@@ -45,20 +45,20 @@
       "request_content_type" : "application/x-www-form-urlencoded",
       "response_status" : 200,
       "response_status_text" : "OK",
-      "response_body" : "{\"id\":7,\"description\":\"Makenna\",\"comment\":\"Franecki\",\"event_id\":21,\"created_at\":\"2015-09-17T22:50:14.565Z\",\"updated_at\":\"2015-09-17T22:50:14.578Z\"}",
+      "response_body" : "{\"links\":{\"self\":\"http://localhost:3000\"},\"data\":{\"type\":\"items\",\"id\":9,\"attributes\":{\"id\":9,\"description\":\"Gracie\",\"comment\":\"Cruickshank\",\"event_id\":20,\"created_at\":\"2015-09-23T20:45:59.182Z\",\"updated_at\":\"2015-09-23T20:45:59.193Z\"}}}",
       "response_headers" : {
         "X-Frame-Options" : "SAMEORIGIN",
         "X-XSS-Protection" : "1; mode=block",
         "X-Content-Type-Options" : "nosniff",
         "Content-Type" : "application/json; charset=utf-8",
-        "ETag" : "W/\"c6bafa6f557edace27cde91c301ed8ea\"",
+        "ETag" : "W/\"962975ceca23469b617147123e5f8080\"",
         "Cache-Control" : "max-age=0, private, must-revalidate",
-        "X-Request-Id" : "c2944e8e-061e-4fcd-98a8-d80ebc6660db",
-        "X-Runtime" : "0.005733",
-        "Content-Length" : "147"
+        "X-Request-Id" : "873726aa-25fe-440d-9dc1-051d123fb0e0",
+        "X-Runtime" : "0.005728",
+        "Content-Length" : "236"
       },
       "response_content_type" : "application/json; charset=utf-8",
-      "curl" : "curl \"https://cometogether.com/api/v1/items/7\" -d 'item[description]=Makenna&item[comment]=Franecki&item[event_id]=21' -X PUT \\\n\t-H \"Authorization: Token token=test123123\""
+      "curl" : "curl \"https://cometogether.com/api/v1/items/9\" -d 'item[description]=Gracie&item[comment]=Cruickshank&item[event_id]=20' -X PUT \\\n\t-H \"Authorization: Token token=test123123\""
     }
   ]
 }

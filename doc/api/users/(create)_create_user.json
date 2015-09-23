@@ -43,7 +43,7 @@
     {
       "request_method" : "POST",
       "request_path" : "/api/v1/users",
-      "request_body" : "user[first_name]=Mireille&user[last_name]=Schroeder&user[email]=chanel%40emard.co.uk&user[password]=nullafugaquos&user[role]=user",
+      "request_body" : "user[first_name]=Elisha&user[last_name]=Conroy&user[email]=noelia%40dietrich.com&user[password]=ettemporibusblan&user[role]=admin",
       "request_headers" : {
         "Accept" : "application/json",
         "Content-Type" : "application/x-www-form-urlencoded"
@@ -52,20 +52,20 @@
       "request_content_type" : "application/x-www-form-urlencoded",
       "response_status" : 200,
       "response_status_text" : "OK",
-      "response_body" : "{\"id\":68,\"first_name\":\"Mireille\",\"last_name\":\"Schroeder\",\"email\":\"chanel@emard.co.uk\",\"password_digest\":\"$2a$04$ffaxwsUq5uN9rhVRDx4zJOzslF5/5Ik56k8wumOWhhtpYkZzTENde\",\"role\":\"user\",\"created_at\":\"2015-09-17T22:50:14.792Z\",\"updated_at\":\"2015-09-17T22:50:14.792Z\",\"auth_token\":\"04a7ade7c8c84e178058eb99a3dfe2fd\"}",
+      "response_body" : "{\"links\":{\"self\":\"http://localhost:3000\"},\"data\":{\"type\":\"users\",\"id\":55,\"attributes\":{\"id\":55,\"first_name\":\"Elisha\",\"last_name\":\"Conroy\",\"email\":\"noelia@dietrich.com\",\"password_digest\":\"$2a$04$Urbv6lB.Gw6MfcwnFxn/euU8onnLsZtPWl4NLCcm8jqtHqQAdUaxS\",\"role\":\"admin\",\"created_at\":\"2015-09-23T20:45:59.325Z\",\"updated_at\":\"2015-09-23T20:45:59.325Z\",\"auth_token\":\"d7e7a116f0c94ed1a2b1b268c58ba174\"}}}",
       "response_headers" : {
         "X-Frame-Options" : "SAMEORIGIN",
         "X-XSS-Protection" : "1; mode=block",
         "X-Content-Type-Options" : "nosniff",
         "Content-Type" : "application/json; charset=utf-8",
-        "ETag" : "W/\"0d3ee305f547213cf45c3bd5244620e5\"",
+        "ETag" : "W/\"560bf8977cce550eebb2bbf8ff5c5673\"",
         "Cache-Control" : "max-age=0, private, must-revalidate",
-        "X-Request-Id" : "ddc22983-7254-47e4-8cbe-4261a68bf5a4",
-        "X-Runtime" : "0.005530",
-        "Content-Length" : "309"
+        "X-Request-Id" : "e267258a-60fe-40ac-91f9-8af0aad5c7ad",
+        "X-Runtime" : "0.005572",
+        "Content-Length" : "394"
       },
       "response_content_type" : "application/json; charset=utf-8",
-      "curl" : "curl \"https://cometogether.com/api/v1/users\" -d 'user[first_name]=Mireille&user[last_name]=Schroeder&user[email]=chanel%40emard.co.uk&user[password]=nullafugaquos&user[role]=user' -X POST \\\n\t-H \"Accept: application/json\""
+      "curl" : "curl \"https://cometogether.com/api/v1/users\" -d 'user[first_name]=Elisha&user[last_name]=Conroy&user[email]=noelia%40dietrich.com&user[password]=ettemporibusblan&user[role]=admin' -X POST \\\n\t-H \"Accept: application/json\""
     }
   ]
 }

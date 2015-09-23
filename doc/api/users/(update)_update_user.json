@@ -48,8 +48,8 @@
   "requests" : [
     {
       "request_method" : "PUT",
-      "request_path" : "/api/v1/users/70",
-      "request_body" : "user[first_name]=Caesar&user[last_name]=Douglas&user[email]=audra.rath%40kilback.co.uk&user[password]=voluptatematenet&user[role]=admin",
+      "request_path" : "/api/v1/users/57",
+      "request_body" : "user[first_name]=Lourdes&user[last_name]=Haag&user[email]=marquis%40johns.name&user[password]=iureverout&user[role]=user",
       "request_headers" : {
         "Accept" : "application/json",
         "Authorization" : "Token token=test123123",
@@ -59,20 +59,20 @@
       "request_content_type" : "application/x-www-form-urlencoded",
       "response_status" : 200,
       "response_status_text" : "OK",
-      "response_body" : "{\"id\":70,\"first_name\":\"Caesar\",\"last_name\":\"Douglas\",\"email\":\"audra.rath@kilback.co.uk\",\"password_digest\":\"$2a$04$sbq0bv81d7U7PyaRo9Lln.cL1Y8uEWqsmR0TDvi8hydvej4gpa7T2\",\"role\":\"admin\",\"created_at\":\"2015-09-17T22:50:14.811Z\",\"updated_at\":\"2015-09-17T22:50:14.818Z\",\"auth_token\":\"60382a57f4ec4b2da6fde9beda5074ff\"}",
+      "response_body" : "{\"links\":{\"self\":\"http://localhost:3000\"},\"data\":{\"type\":\"users\",\"id\":57,\"attributes\":{\"id\":57,\"first_name\":\"Lourdes\",\"last_name\":\"Haag\",\"email\":\"marquis@johns.name\",\"password_digest\":\"$2a$04$Q.R8tnDezyEobyVcpu.1weU9DmL4BpGVAoDATD/dExsgmgURXuJde\",\"role\":\"user\",\"created_at\":\"2015-09-23T20:45:59.345Z\",\"updated_at\":\"2015-09-23T20:45:59.352Z\",\"auth_token\":\"4a5a25112a684ff6b1b8471ed1b39eee\"}}}",
       "response_headers" : {
         "X-Frame-Options" : "SAMEORIGIN",
         "X-XSS-Protection" : "1; mode=block",
         "X-Content-Type-Options" : "nosniff",
         "Content-Type" : "application/json; charset=utf-8",
-        "ETag" : "W/\"7085a1fdb732efd7842e157e97e938f1\"",
+        "ETag" : "W/\"bf318cf98395dad5ed757c138955b5c3\"",
         "Cache-Control" : "max-age=0, private, must-revalidate",
-        "X-Request-Id" : "359ce081-bc98-4741-9027-b4693d7e3db4",
-        "X-Runtime" : "0.007642",
-        "Content-Length" : "312"
+        "X-Request-Id" : "9a7b9e09-361f-4e11-a6e9-18e790607e80",
+        "X-Runtime" : "0.007069",
+        "Content-Length" : "391"
       },
       "response_content_type" : "application/json; charset=utf-8",
-      "curl" : "curl \"https://cometogether.com/api/v1/users/70\" -d 'user[first_name]=Caesar&user[last_name]=Douglas&user[email]=audra.rath%40kilback.co.uk&user[password]=voluptatematenet&user[role]=admin' -X PUT \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Authorization: Token token=test123123\""
+      "curl" : "curl \"https://cometogether.com/api/v1/users/57\" -d 'user[first_name]=Lourdes&user[last_name]=Haag&user[email]=marquis%40johns.name&user[password]=iureverout&user[role]=user' -X PUT \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Authorization: Token token=test123123\""
     }
   ]
 }

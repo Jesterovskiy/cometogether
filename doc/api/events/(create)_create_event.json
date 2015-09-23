@@ -42,7 +42,7 @@
     {
       "request_method" : "POST",
       "request_path" : "/api/v1/events",
-      "request_body" : "event[name]=quae&event[description]=Sunt+porro+commodi+accusantium+at+ullam.&event[location]=Hollieland&event[date]=2015-06-03+00%3A00%3A00+%2B0300&event[user_id]=9",
+      "request_body" : "event[name]=reiciendis&event[description]=Consequatur+et+consectetur+nemo+ea.&event[location]=New+Adellafurt&event[date]=2011-08-02+00%3A00%3A00+%2B0300&event[user_id]=13",
       "request_headers" : {
         "Authorization" : "Token token=test123123",
         "Content-Type" : "application/x-www-form-urlencoded"
@@ -51,20 +51,20 @@
       "request_content_type" : "application/x-www-form-urlencoded",
       "response_status" : 200,
       "response_status_text" : "OK",
-      "response_body" : "{\"id\":5,\"name\":\"quae\",\"description\":\"Sunt porro commodi accusantium at ullam.\",\"location\":\"Hollieland\",\"date\":\"2015-06-02T21:00:00.000Z\",\"user_id\":9,\"created_at\":\"2015-09-17T22:50:14.229Z\",\"updated_at\":\"2015-09-17T22:50:14.229Z\"}",
+      "response_body" : "{\"links\":{\"self\":\"http://localhost:3000\"},\"data\":{\"type\":\"events\",\"id\":8,\"attributes\":{\"id\":8,\"name\":\"reiciendis\",\"description\":\"Consequatur et consectetur nemo ea.\",\"location\":\"New Adellafurt\",\"date\":\"2011-08-01T21:00:00.000Z\",\"user_id\":13,\"created_at\":\"2015-09-23T20:45:58.913Z\",\"updated_at\":\"2015-09-23T20:45:58.913Z\"}}}",
       "response_headers" : {
         "X-Frame-Options" : "SAMEORIGIN",
         "X-XSS-Protection" : "1; mode=block",
         "X-Content-Type-Options" : "nosniff",
         "Content-Type" : "application/json; charset=utf-8",
-        "ETag" : "W/\"4d11f79fe441fd804093e0efdf0aea11\"",
+        "ETag" : "W/\"5669063d5ad2cd7e5396163dfaa4a714\"",
         "Cache-Control" : "max-age=0, private, must-revalidate",
-        "X-Request-Id" : "6c52f063-e617-43b1-bbec-4a694c847394",
-        "X-Runtime" : "0.008450",
-        "Content-Length" : "229"
+        "X-Request-Id" : "9c5e2dff-288b-4323-a6ab-fc99ee809a2c",
+        "X-Runtime" : "0.007320",
+        "Content-Length" : "323"
       },
       "response_content_type" : "application/json; charset=utf-8",
-      "curl" : "curl \"https://cometogether.com/api/v1/events\" -d 'event[name]=quae&event[description]=Sunt+porro+commodi+accusantium+at+ullam.&event[location]=Hollieland&event[date]=2015-06-03+00%3A00%3A00+%2B0300&event[user_id]=9' -X POST \\\n\t-H \"Authorization: Token token=test123123\""
+      "curl" : "curl \"https://cometogether.com/api/v1/events\" -d 'event[name]=reiciendis&event[description]=Consequatur+et+consectetur+nemo+ea.&event[location]=New+Adellafurt&event[date]=2011-08-02+00%3A00%3A00+%2B0300&event[user_id]=13' -X POST \\\n\t-H \"Authorization: Token token=test123123\""
     }
   ]
 }

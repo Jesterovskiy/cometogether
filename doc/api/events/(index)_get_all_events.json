@@ -18,17 +18,17 @@
       "request_content_type" : null,
       "response_status" : 200,
       "response_status_text" : "OK",
-      "response_body" : "[{\"id\":1,\"name\":\"sint\",\"description\":\"Harum sit quos labore nostrum.\",\"location\":\"Padbergberg\",\"date\":\"2011-06-16T21:00:00.000Z\",\"user_id\":2,\"created_at\":\"2015-09-17T22:50:14.129Z\",\"updated_at\":\"2015-09-17T22:50:14.129Z\"},{\"id\":2,\"name\":\"est\",\"description\":\"Dolores numquam in illum sint non inventore similique.\",\"location\":\"Wolfffort\",\"date\":\"2012-02-06T22:00:00.000Z\",\"user_id\":3,\"created_at\":\"2015-09-17T22:50:14.136Z\",\"updated_at\":\"2015-09-17T22:50:14.136Z\"},{\"id\":3,\"name\":\"reiciendis\",\"description\":\"Et officia laboriosam quis et voluptatem.\",\"location\":\"Swiftmouth\",\"date\":\"2015-09-13T21:00:00.000Z\",\"user_id\":4,\"created_at\":\"2015-09-17T22:50:14.141Z\",\"updated_at\":\"2015-09-17T22:50:14.141Z\"}]",
+      "response_body" : "{\"links\":{\"self\":\"http://localhost:3000\"},\"data\":[{\"type\":\"events\",\"id\":1,\"attributes\":{\"id\":1,\"name\":\"iure\",\"description\":\"Non non est aut in rerum reprehenderit.\",\"location\":\"North Frankie\",\"date\":\"2013-05-03T21:00:00.000Z\",\"user_id\":2,\"created_at\":\"2015-09-23T20:45:58.785Z\",\"updated_at\":\"2015-09-23T20:45:58.785Z\"}},{\"type\":\"events\",\"id\":2,\"attributes\":{\"id\":2,\"name\":\"qui\",\"description\":\"Autem cumque porro aperiam ipsa est vel laborum hic.\",\"location\":\"Emmerichside\",\"date\":\"2015-09-02T21:00:00.000Z\",\"user_id\":3,\"created_at\":\"2015-09-23T20:45:58.792Z\",\"updated_at\":\"2015-09-23T20:45:58.792Z\"}},{\"type\":\"events\",\"id\":3,\"attributes\":{\"id\":3,\"name\":\"qui\",\"description\":\"Voluptates aliquid quas maxime accusamus ipsum et repellat.\",\"location\":\"New Sydnie\",\"date\":\"2011-07-10T21:00:00.000Z\",\"user_id\":4,\"created_at\":\"2015-09-23T20:45:58.804Z\",\"updated_at\":\"2015-09-23T20:45:58.804Z\"}}]}",
       "response_headers" : {
         "X-Frame-Options" : "SAMEORIGIN",
         "X-XSS-Protection" : "1; mode=block",
         "X-Content-Type-Options" : "nosniff",
         "Content-Type" : "application/json; charset=utf-8",
-        "ETag" : "W/\"e87fdaad4e80b6eb2ea14264f30c7ebc\"",
+        "ETag" : "W/\"bb6b45a769712bce8e5f8a9fd1ebdbb2\"",
         "Cache-Control" : "max-age=0, private, must-revalidate",
-        "X-Request-Id" : "3405883c-ed44-439b-87a8-72abc4018bd5",
-        "X-Runtime" : "0.026742",
-        "Content-Length" : "701"
+        "X-Request-Id" : "479ffded-fc9d-4326-a1b8-fb6459e01c8e",
+        "X-Runtime" : "0.022231",
+        "Content-Length" : "888"
       },
       "response_content_type" : "application/json; charset=utf-8",
       "curl" : "curl \"https://cometogether.com/api/v1/events\" -X GET \\\n\t-H \"Authorization: Token token=test123123\""

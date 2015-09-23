@@ -16,7 +16,7 @@
   "requests" : [
     {
       "request_method" : "GET",
-      "request_path" : "/api/v1/events/4",
+      "request_path" : "/api/v1/events/7",
       "request_body" : null,
       "request_headers" : {
         "Authorization" : "Token token=test123123"
@@ -25,20 +25,20 @@
       "request_content_type" : null,
       "response_status" : 200,
       "response_status_text" : "OK",
-      "response_body" : "{\"id\":4,\"name\":\"et\",\"description\":\"Quidem rem non cum neque vero voluptatem quia.\",\"location\":\"North Giovannahaven\",\"date\":\"2015-10-04T21:00:00.000Z\",\"user_id\":6,\"created_at\":\"2015-09-17T22:50:14.196Z\",\"updated_at\":\"2015-09-17T22:50:14.196Z\"}",
+      "response_body" : "{\"links\":{\"self\":\"http://localhost:3000\"},\"data\":{\"type\":\"events\",\"id\":7,\"attributes\":{\"id\":7,\"name\":\"excepturi\",\"description\":\"Enim eaque minus neque aut doloribus sint ratione expedita.\",\"location\":\"Andersonburgh\",\"date\":\"2011-06-11T21:00:00.000Z\",\"user_id\":10,\"created_at\":\"2015-09-23T20:45:58.883Z\",\"updated_at\":\"2015-09-23T20:45:58.883Z\"}}}",
       "response_headers" : {
         "X-Frame-Options" : "SAMEORIGIN",
         "X-XSS-Protection" : "1; mode=block",
         "X-Content-Type-Options" : "nosniff",
         "Content-Type" : "application/json; charset=utf-8",
-        "ETag" : "W/\"b4119acdb2bfd30a9213843afe93d311\"",
+        "ETag" : "W/\"fbc556c22af59ee773f6cd9dd0e9a445\"",
         "Cache-Control" : "max-age=0, private, must-revalidate",
-        "X-Request-Id" : "49aa6602-0a78-465f-bf6a-6fb2769659d3",
-        "X-Runtime" : "0.004272",
-        "Content-Length" : "242"
+        "X-Request-Id" : "043beaa8-99d2-46ad-ac61-ac93437b6078",
+        "X-Runtime" : "0.004377",
+        "Content-Length" : "345"
       },
       "response_content_type" : "application/json; charset=utf-8",
-      "curl" : "curl \"https://cometogether.com/api/v1/events/4\" -X GET \\\n\t-H \"Authorization: Token token=test123123\""
+      "curl" : "curl \"https://cometogether.com/api/v1/events/7\" -X GET \\\n\t-H \"Authorization: Token token=test123123\""
     }
   ]
 }

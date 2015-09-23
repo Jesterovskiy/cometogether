@@ -16,7 +16,7 @@
   "requests" : [
     {
       "request_method" : "GET",
-      "request_path" : "/api/v1/users/65",
+      "request_path" : "/api/v1/users/53",
       "request_body" : null,
       "request_headers" : {
         "Accept" : "application/json",
@@ -26,20 +26,20 @@
       "request_content_type" : null,
       "response_status" : 200,
       "response_status_text" : "OK",
-      "response_body" : "{\"id\":65,\"first_name\":\"Elfrieda\",\"last_name\":\"Labadie\",\"email\":\"adan_damore@pollichschuppe.biz\",\"password_digest\":\"$2a$04$80DmMEsgf2LlmXamat3fRuBJERaRbwdWVxFcMn/redvi3fpp2nPYS\",\"role\":\"guest\",\"created_at\":\"2015-09-17T22:50:14.761Z\",\"updated_at\":\"2015-09-17T22:50:14.761Z\",\"auth_token\":\"9b6939fa0e604114becb3794b3096feb\"}",
+      "response_body" : "{\"links\":{\"self\":\"http://localhost:3000\"},\"data\":{\"type\":\"users\",\"id\":53,\"attributes\":{\"id\":53,\"first_name\":\"Candida\",\"last_name\":\"Cruickshank\",\"email\":\"aurore@kozey.co.uk\",\"password_digest\":\"$2a$04$LVW1mYFU3Riw2NW80pRYheAlbTWom3Bq9xrbeZTR.YXIUYOKgk912\",\"role\":\"user\",\"created_at\":\"2015-09-23T20:45:59.305Z\",\"updated_at\":\"2015-09-23T20:45:59.305Z\",\"auth_token\":\"f0ace5d926654a2089b9d2bbf62ef533\"}}}",
       "response_headers" : {
         "X-Frame-Options" : "SAMEORIGIN",
         "X-XSS-Protection" : "1; mode=block",
         "X-Content-Type-Options" : "nosniff",
         "Content-Type" : "application/json; charset=utf-8",
-        "ETag" : "W/\"ebbf126016239e2f23daf2609f1abeea\"",
+        "ETag" : "W/\"3e764fe5cff2e67ccc88e9784e6dcad9\"",
         "Cache-Control" : "max-age=0, private, must-revalidate",
-        "X-Request-Id" : "b84af3d0-8e70-4baa-9b9a-c48accf42b80",
-        "X-Runtime" : "0.003802",
-        "Content-Length" : "320"
+        "X-Request-Id" : "ea568368-cef0-4ca0-bae3-007b8132e390",
+        "X-Runtime" : "0.003800",
+        "Content-Length" : "398"
       },
       "response_content_type" : "application/json; charset=utf-8",
-      "curl" : "curl \"https://cometogether.com/api/v1/users/65\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Authorization: Token token=test123123\""
+      "curl" : "curl \"https://cometogether.com/api/v1/users/53\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Authorization: Token token=test123123\""
     }
   ]
 }

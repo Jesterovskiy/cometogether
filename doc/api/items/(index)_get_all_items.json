@@ -18,17 +18,17 @@
       "request_content_type" : null,
       "response_status" : 200,
       "response_status_text" : "OK",
-      "response_body" : "[{\"id\":1,\"description\":\"Nam quisquam illo sapiente repellendus nostrum rerum dolorum vitae.\",\"comment\":\"Et a aperiam rerum quia dolor.\",\"event_id\":13,\"created_at\":\"2015-09-17T22:50:14.436Z\",\"updated_at\":\"2015-09-17T22:50:14.436Z\"},{\"id\":2,\"description\":\"Numquam pariatur occaecati accusamus laborum maiores.\",\"comment\":\"Et fugit modi adipisci recusandae odit non rerum aperiam.\",\"event_id\":14,\"created_at\":\"2015-09-17T22:50:14.445Z\",\"updated_at\":\"2015-09-17T22:50:14.445Z\"},{\"id\":3,\"description\":\"Nihil reiciendis iure consequatur non.\",\"comment\":\"Et ut perferendis labore incidunt tempore ipsum explicabo.\",\"event_id\":15,\"created_at\":\"2015-09-17T22:50:14.453Z\",\"updated_at\":\"2015-09-17T22:50:14.453Z\"}]",
+      "response_body" : "{\"links\":{\"self\":\"http://localhost:3000\"},\"data\":[{\"type\":\"items\",\"id\":1,\"attributes\":{\"id\":1,\"description\":\"Qui at rerum sapiente reprehenderit autem occaecati.\",\"comment\":\"Molestias et voluptatem molestiae non esse vitae nisi itaque.\",\"event_id\":11,\"created_at\":\"2015-09-23T20:45:59.023Z\",\"updated_at\":\"2015-09-23T20:45:59.023Z\"}},{\"type\":\"items\",\"id\":2,\"attributes\":{\"id\":2,\"description\":\"Perferendis est rem eaque qui nulla quo autem et.\",\"comment\":\"Iste iure occaecati expedita accusamus et ea rerum ratione.\",\"event_id\":12,\"created_at\":\"2015-09-23T20:45:59.034Z\",\"updated_at\":\"2015-09-23T20:45:59.034Z\"}},{\"type\":\"items\",\"id\":3,\"attributes\":{\"id\":3,\"description\":\"Quam fugiat magni necessitatibus qui deleniti et.\",\"comment\":\"Magnam hic facere deserunt esse.\",\"event_id\":13,\"created_at\":\"2015-09-23T20:45:59.045Z\",\"updated_at\":\"2015-09-23T20:45:59.045Z\"}}]}",
       "response_headers" : {
         "X-Frame-Options" : "SAMEORIGIN",
         "X-XSS-Protection" : "1; mode=block",
         "X-Content-Type-Options" : "nosniff",
         "Content-Type" : "application/json; charset=utf-8",
-        "ETag" : "W/\"f3bcdf6c8707c74ae4cabb39cb16d6b5\"",
+        "ETag" : "W/\"0233f30394f46478b76d882f6f76294f\"",
         "Cache-Control" : "max-age=0, private, must-revalidate",
-        "X-Request-Id" : "bc675d0b-c49a-498e-9b69-949b747909d8",
-        "X-Runtime" : "0.008546",
-        "Content-Length" : "703"
+        "X-Request-Id" : "9d66c1b1-06d4-40fc-946b-588936d2435c",
+        "X-Runtime" : "0.008645",
+        "Content-Length" : "863"
       },
       "response_content_type" : "application/json; charset=utf-8",
       "curl" : "curl \"https://cometogether.com/api/v1/items\" -X GET \\\n\t-H \"Authorization: Token token=test123123\""

@@ -26,17 +26,17 @@
       "request_content_type" : "application/x-www-form-urlencoded",
       "response_status" : 200,
       "response_status_text" : "OK",
-      "response_body" : "{\"message\":\"Resource deleted\"}",
+      "response_body" : "{\"links\":{\"self\":\"http://localhost:3000\"},\"data\":{\"type\":\"events\",\"id\":10,\"attributes\":{\"id\":10,\"name\":\"qui\",\"description\":\"In accusantium porro vero enim.\",\"location\":\"New Chaz\",\"date\":\"2013-05-07T21:00:00.000Z\",\"user_id\":20,\"created_at\":\"2015-09-23T20:45:58.983Z\",\"updated_at\":\"2015-09-23T20:45:58.983Z\"}}}",
       "response_headers" : {
         "X-Frame-Options" : "SAMEORIGIN",
         "X-XSS-Protection" : "1; mode=block",
         "X-Content-Type-Options" : "nosniff",
         "Content-Type" : "application/json; charset=utf-8",
-        "ETag" : "W/\"39b5aa85d8bbf9692f92b06d32a694e9\"",
+        "ETag" : "W/\"877457182159295ad4ed170ed232d4c0\"",
         "Cache-Control" : "max-age=0, private, must-revalidate",
-        "X-Request-Id" : "5720c33a-08d4-4113-94b3-b3039d67a45b",
-        "X-Runtime" : "0.003303",
-        "Content-Length" : "30"
+        "X-Request-Id" : "c9977f16-4d6e-44e3-af77-329ed81715b5",
+        "X-Runtime" : "0.003700",
+        "Content-Length" : "308"
       },
       "response_content_type" : "application/json; charset=utf-8",
       "curl" : "curl \"https://cometogether.com/api/v1/events/10\" -d '' -X DELETE \\\n\t-H \"Authorization: Token token=test123123\""
