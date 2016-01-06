@@ -117,7 +117,7 @@ RSpec.resource 'Users' do
         expect(status).to be(400)
         expect(JSON.parse(response_body)['error']).to eq(
           'status' => 400, 'title' => {
-            'password' => ["can't be blank", "can't be blank"],
+            'password' => ["can't be blank"],
             'email' => ["can't be blank"], 'role' => [' is not a valid role']
           }
         )

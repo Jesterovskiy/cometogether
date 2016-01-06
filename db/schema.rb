@@ -24,9 +24,8 @@ ActiveRecord::Schema.define(version: 20150916213539) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
-
-  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "items", force: :cascade do |t|
     t.string   "description", null: false
@@ -34,9 +33,8 @@ ActiveRecord::Schema.define(version: 20150916213539) do
     t.integer  "event_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["event_id"], name: "index_items_on_event_id", using: :btree
   end
-
-  add_index "items", ["event_id"], name: "index_items_on_event_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
