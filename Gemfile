@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Rails 5
-gem 'rails', github: 'rails/rails'
+gem 'rails'
 
 # Database
 gem 'pg'
